@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Nice Chart 2.0</title>
+</head>
+<body>
+    <form name="form1" method="post" action="insert_data.php">
+        <label>Choose your Instrumentation</label>
+        <button class="w3-button w3-xlarge w3-circle w3-black">+</button>
+        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="0"> Piccolo</input>
+        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="1">Trumpet</input>
+        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="2"> Trombone</input>
+        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="3">Sax</input>
+        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="4">Tuba</input>
+        </form>
+    <p class="displayNums"></p>
+    <p class="displayNames"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
