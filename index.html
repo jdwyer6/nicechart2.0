@@ -9,24 +9,19 @@
     <title>Nice Chart 2.0</title>
 </head>
 <body>
-    <form name="form1" method="post" action="insert_data.php">
-        <label>Choose your Instrumentation</label>
-        <input onChange="valueChange(this)" type="number" name="area" id="area" value="0"> Piccolo</input>
-        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="1">Trumpet</input>
-        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="2"> Trombone</input>
-        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="3">Sax</input>
-        <input onChange="valueChange(this)" type="checkbox" name="area" id="area" value="4">Tuba</input>
-        </form>
-    <p class="displayNums"></p>
-    <p class="displayNames"></p>
-
-    <form onsubmit="return saveInstChoice(this)">
-        <label for="piccolo">Quantity (between 1 and 5):</label>
-        <input onChange="update(this)" type="number" id="area" name="piccolo" min="1" max="5">
-        <input type="submit">
-      </form>
-      <button onChange="addPicc()">+ Add Piccolo +</button>
-      <p class="instrument-amount"></p>
+    <div class="chooseInst">
+        <label>Piccolo</label>
+        <button onclick="addInst()" id="myBtn" class="button" value="0">+</button>
+        <button onclick="removeInst()" id="myBtn" class="button" value="0">-</button>
+        <label>Piccolo</label>
+        <button onclick="addInst()" id="myBtn" class="button" value="1">Click to add flute</button>
+    </div>
+    
+    
+    
+    
+    <h1 id="demo">Text here</h1>
+    <h1 id="names">Text here</h1>
 
     <script src="script.js"></script>
 </body>
