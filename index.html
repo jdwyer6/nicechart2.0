@@ -6,23 +6,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Nice Chart 2.0</title>
 </head>
 <body>
-    <div class="chooseInst">
-        <label>Piccolo</label>
-        <button onclick="addInst()" id="myBtn" class="button" value="0">+</button>
-        <button onclick="removeInst()" id="myBtn" class="button" value="0">-</button>
-        <label>Piccolo</label>
-        <button onclick="addInst()" id="myBtn" class="button" value="1">Click to add flute</button>
+    <div class="instrumentationTitle">
+        <h1>Compose your Ensemble</h1>
     </div>
+    <div class="inst-container-main">
+
+        <!-- Button Column -->
+        <div class="instDisplayColumn">
+            <!-- <h1 id="demo">Your Enesmble</h1>
+            <p class="instName Piccolo">Piccolo</p>
+            <p class="instName Oboe">Oboe</p>
+            <p class="instName Flute">Flute</p>
+            <p class="instName Clarinet">Clarinet</p> -->
+            <p id="names"></p>
+        </div>
+
+        <!-- Choose Inst Column -->
+        <div class="table-responsive chooseInst-container">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>Instrument</th>
+                        <th>Quantity</th>
+                        <th>Add/Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Piccolo</td>
+                        <td><p id="Piccolo" class="updateCircle">0</p></td>
+                        <td>
+                          <button onclick="" id="add" class="instButton" value="0" name="Piccolo">+</button>
+                          <button onclick="" id="remove" class="instButton" value="0" name="Piccolo">-</button>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>Oboe</td>
+                        <td><p id="Oboe" class="updateCircle">0</p></td>
+                        <td>
+                          <button onclick="" id="add" class="instButton" value="2" name="Oboe">+</button>
+                          <button onclick="" id="remove" class="instButton" value="2" name="Oboe">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>Flute</td>
+                      <td><p id="Flute" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="1" name="Flute">+</button>
+                          <button onclick="" id="remove" class="instButton" value="1" name="Flute">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Clarinet</td>
+                      <td><p id="Clarinet" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="3" name="Clarinet">+</button>
+                          <button onclick="" id="remove" class="instButton" value="3" name="Clarinet">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Bassoon</td>
+                      <td><p id="Bassoon" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="4" name="Bassoon">+</button>
+                          <button onclick="" id="remove" class="instButton" value="4" name="Bassoon">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Horn</td>
+                      <td><p id="Horn" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="5" name="Horn">+</button>
+                          <button onclick="" id="remove" class="instButton" value="5" name="Horn">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Trumpet</td>
+                      <td><p id="Trumpet" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="6" name="Trumpet">+</button>
+                          <button onclick="" id="remove" class="instButton" value="6" name="Trumpet">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Trombone</td>
+                      <td><p id="Trombone" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="7" name="Trombone">+</button>
+                          <button onclick="" id="remove" class="instButton" value="7" name="Trombone">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Tuba</td>
+                      <td><p id="Tuba" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="8" name="Tuba">+</button>
+                          <button onclick="" id="remove" class="instButton" value="8" name="Tuba">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Timpani</td>
+                      <td><p id="Timpani" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="9" name="Timpani">+</button>
+                          <button onclick="" id="remove" class="instButton" value="9" name="Timpani">-</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Percussion</td>
+                      <td><p id="Percussion" class="updateCircle">0</p></td>
+                      <td>
+                          <button onclick="" id="add" class="instButton" value="10" name="Percussion">+</button>
+                          <button onclick="" id="remove" class="instButton" value="10" name="Percussion">-</button>
+                      </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+
+          <!-- Button Column -->
+          <div class="buttonColumn">
+            <div class="sort">
+                <button onclick="sortInstruments()" id="sort" class="btn btn-success button" value="">Sort</button>
+            </div>
+           </div>
+
+    </div>
+ 
+
+    
+   
     
     
-    
-    
-    <h1 id="demo">Text here</h1>
-    <h1 id="names">Text here</h1>
+   
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
