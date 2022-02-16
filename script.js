@@ -85,12 +85,16 @@ function displayArray(){
 };
 
 
+
 function saveToStorage(){
-localStorage.setItem("ensemble", instrumentation.length);
+localStorage.setItem("ensembleSize", instrumentation.length);
+var ensembleName = document.getElementById("nameEnsemble").value;
+localStorage.setItem("name", ensembleName);
 }
 
 function getFromStorage(){
-  document.getElementById("localStorage").append(localStorage.getItem("ensemble"));
+  document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
+  document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
 }
 
 
