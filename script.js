@@ -92,11 +92,26 @@ var ensembleName = document.getElementById("nameEnsemble").value;
 localStorage.setItem("name", ensembleName);
 }
 
-function getFromStorage(){
-  document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
-  document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
+// function getFromStorage(){
+//   document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
+//   document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
+// }
+
+function noEnsembles(){
+  if("ensembleSize" in localStorage){
+    document.getElementById("ensembleCard").className = "ensembleCard";
+    document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
+    document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
+    document.getElementById("noEnsemblesText").innerHTML = "My ensembles:";
+  }else{
+    document.getElementById("noEnsemblesText").innerHTML = "Hmm...It looks like you haven't created an ensemble yet. Click the + to get started!";
+    document.getElementById("ensembleCard").className = "ensembleCardHide";
+  }
 }
 
+function clearLocalStorage(){
+  localStorage.clear();
+}
 
 
 
