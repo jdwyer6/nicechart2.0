@@ -85,24 +85,13 @@ function displayArray(){
 };
 
 
-//  function updateUserDisplay(){
-//   var table = document.getElementById("table");
- 
-// for (var i=0, row; row=table.rows[i]; i++) {
-//   for(var j=0, col; col=row.cells[j]; j++){
-//     var inst = col.innerHTML;
-//     if(inst = "Piccolo"){
-//       console.log("yes");
-//     }
-   
-//   }
-      
-     
-// }
-//  }
+function saveToStorage(){
+localStorage.setItem("ensemble", instrumentation.length);
+}
 
-// console.log(i);
-  
+function getFromStorage(){
+  document.getElementById("localStorage").append(localStorage.getItem("ensemble"));
+}
 
 
 

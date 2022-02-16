@@ -26,17 +26,27 @@
             <button class="logInBtn">Login</button>
         </div>
     </nav>
-    <div class="homeMainContainer">
-        <div class="homeLeftContainer">
-            <h1>Be a part of the</h1><h1 class="greenText">revolution</h1><h1> in the most</h1><h1 class="greenText">advanced</h1><h1>ensemble management system </h1><h1 class="greenText">ever created</h1></h1>
-            <p>This is the world's first algorithm-based orchestration tool allowing you to rearrange published content instantly. 
-                Reorchestrate as much as you'd like and hear how it sounds before buying</p>
-                <button class="callToActionBtn">Try it for Free</button>
+
+    <div class="myEnsembleMainContainer">
+        <div class="myEnsemblesBar">
+            <p>Ensembles</p>
+            <div class="myEnsemblesBarRight">
+                <input type="text" placeholder="Search for Ensembles...">
+                <div class="line"></div>
+                <a href="createAnEnsemble.html">+ Ensemble</a>
+            </div>
         </div>
-        <div class="homeRightContainer">
-            <img src="images/saxophone2.jpg" alt="saxophonepic">
+        <div class="groupCreationContainer">
+            <p>Hmm...It looks like you haven't created an ensemble yet. Click the + to get started!</p>
         </div>
     </div>
+
+    <div class="ensembleCard">
+        <p id="localStorage">members: </p>
+    </div>
+
+    <button onclick="getFromStorage()">click to see enemble</button>
+    
 
  
     

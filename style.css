@@ -106,7 +106,7 @@ width: 200px;
 }
 
 #names{
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
 }
 
@@ -240,7 +240,7 @@ nav{
 .logInBtn{
     width: 50px;
     border: 0;
-    background-color:rgb(52, 160, 106);
+    background-color:rgb(34, 105, 70);
     color: white;
     padding: 2%;
     border-radius: 5px;
@@ -250,7 +250,7 @@ nav{
 }
 
 .logInBtn:hover{
-    background-color:rgb(34, 105, 70);
+    background-color:rgb(55, 167, 111);
 }
 
 .logo{
@@ -281,6 +281,8 @@ nav{
 
 .homeRightContainer{
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .homeLeftContainer h1{
@@ -320,3 +322,76 @@ nav{
     border-radius: 50%;
     margin-top: 5vh;
 }
+
+/* My Ensembles */
+
+.myEnsembleMainContainer{
+    width: 80%;
+    justify-content: flex-end;
+    margin-top: 5vh;
+}
+
+.myEnsemblesBar{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myEnsemblesBarRight{
+    display: flex;
+}
+
+.line{
+    margin: 0px 1vw;
+    height: 40px;
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 5px;
+}
+
+.myEnsemblesBar p{
+    flex: 1;
+}
+
+.myEnsemblesBar button input{
+    flex: 1;
+}
+
+.myEnsemblesBarRight input{
+    border-radius: 15px;
+    background-color: rgb(228, 228, 228);
+    color: rgb(68, 68, 68);
+    border: none;
+}
+
+.myEnsemblesBarRight a{
+padding: 3% 25px;
+border: none;
+border-radius: 15px;
+background-color:rgb(34, 105, 70);
+color: white;
+font-family: 'Poppins', sans-serif;
+text-decoration: none;
+transition: background-color 300ms;
+}
+
+.myEnsemblesBarRight a:hover{
+    background-color:rgb(50, 148, 101);
+    color: white;
+}
+
+.groupCreationContainer{
+font-weight: 600;
+margin-top: 5vh;
+display: flex;
+justify-content: center;
+}
+
+.ensembleCard{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    /* background-color: rgb(151, 60, 60); */
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.116);
+}
+
+

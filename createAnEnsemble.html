@@ -10,6 +10,23 @@
     <title>Nice Chart 2.0</title>
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            <h1><a href="index.html">NiceChart</a></h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a class="navLink" href="">Browse</a></li>
+                <li><a class="navLink" href="myEnsembles.html">My Ensembles</a></li>
+                <li><a class="navLink" href="">My Library</a></li>
+                <li><a class="navLink" href="">How it Works</a></li>
+            </ul>
+        </div>
+        <div class="logIn">
+            <button class="logInBtn">Login</button>
+        </div>
+    </nav>
+
     <div class="instrumentationTitle">
         <h1>Compose your Ensemble</h1>
     </div>
@@ -134,7 +151,7 @@
                 <button onclick="sortInstruments()" id="sort" class="btn btn-success button" value="">Sort</button>
             </div>
             <div class="sort">
-                <a href="loading.html"><button onclick="" id="createEnsemble" class="button createEnsemble" value="">Create Ensemble</button></a>
+                <a href="loading.html"><button onclick="saveToStorage()" id="createEnsemble" class="button createEnsemble" value="">Create Ensemble</button></a>
             </div>
            </div>
 
