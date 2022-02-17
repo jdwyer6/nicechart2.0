@@ -87,9 +87,17 @@ function displayArray(){
 
 
 function saveToStorage(){
-localStorage.setItem("ensembleSize", instrumentation.length);
-var ensembleName = document.getElementById("nameEnsemble").value;
-localStorage.setItem("name", ensembleName);
+var ensembleTitle = document.getElementById("nameEnsemble");
+var createEnsembleLink = document.getElementById("createEnsembleLink");
+if(ensembleTitle.value.length === 0){
+  alert("Please enter a name for your ensemble");
+  createEnsembleLink.href = "";
+}else{
+  localStorage.setItem("ensembleSize", instrumentation.length);
+  var ensembleName = document.getElementById("nameEnsemble").value;
+  localStorage.setItem("name", ensembleName);
+  createEnsembleLink.href = "loading.html";
+}
 }
 
 // function getFromStorage(){
