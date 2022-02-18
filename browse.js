@@ -172,6 +172,7 @@ var pieces = [
 for(i=0; i<pieces.length; i++){
     var card = document.createElement("div");
     card.className = "pieceCard";
+    // card.setAttribute("href", "browse_chooseEnsemble.html")
     card.id = pieces[i].name;
     var container = document.getElementById("browseContainer");
     container.appendChild(card);

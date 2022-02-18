@@ -131,7 +131,9 @@ function createEnsemble2(){
 }
 
 function checkForGroups(){
-  for(i=0; i<groups.length; i++){
+var groupsInStorage = localStorage.groups;
+
+  for(i=0; i<groupsInStorage.length; i++){
     var container = document.getElementById("myEnsemblesContainer");
     var ensembleContainer = document.createElement("div");
     var groupTitle = document.createElement("h1");
@@ -146,7 +148,7 @@ function checkForGroups(){
     groupAmount.id = ("groupAmount" + [i] );
 
     document.getElementById("groupTitle" + [i]).innerHTML = localStorage.getItem(groups[i].name);
-    document.getElementById("groupAmount" + [i]).innerHTML = localStorage.getItem(groups[i].name);
+    document.getElementById("groupAmount" + [i]).innerHTML = localStorage.getItem(groups[i].size);
   }
 }
 
