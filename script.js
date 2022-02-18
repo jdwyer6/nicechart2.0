@@ -86,24 +86,21 @@ function displayArray(){
 
 
 
-function saveToStorage(){
-var ensembleTitle = document.getElementById("nameEnsemble");
-var createEnsembleLink = document.getElementById("createEnsembleLink");
-if(ensembleTitle.value.length === 0){
-  alert("Please enter a name for your ensemble");
-  createEnsembleLink.href = "";
-}else{
-  localStorage.setItem("ensembleSize", instrumentation.length);
-  var ensembleName = document.getElementById("nameEnsemble").value;
-  localStorage.setItem("name", ensembleName);
-  createEnsembleLink.href = "loading.html";
-}
+
+function createEnsemble(){
+  var ensembleTitle = document.getElementById("nameEnsemble");
+  var createEnsembleLink = document.getElementById("createEnsembleLink");
+  if(ensembleTitle.value.length === 0){
+    alert("Please enter a name for your ensemble");
+    createEnsembleLink.href = "";
+  }else{
+    localStorage.setItem("ensembleSize", instrumentation.length);
+    var ensembleName = document.getElementById("nameEnsemble").value;
+    localStorage.setItem("name", ensembleName);
+    createEnsembleLink.href = "loading.html";
+  }
 }
 
-// function getFromStorage(){
-//   document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
-//   document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
-// }
 
 function noEnsembles(){
   if("ensembleSize" in localStorage){
@@ -121,8 +118,38 @@ function clearLocalStorage(){
   localStorage.clear();
 }
 
+var groups = [];
 
+function createEnsemble2(){
+  var ensembleTitle = document.getElementById("nameEnsemble").value;
+  var ensembleSize = instrumentation.length;
+  groups.push({name: ensembleTitle, size: ensembleSize});
+  localStorage.setItem("groups", JSON.stringify(groups));
+  var storedGroups = localStorage.getItem("groups");
+  console.log(JSON.parse(storedGroups));
+  console.log(localStorage);
+}
 
+function checkForGroups(){
+  for(i=0; i<groups.length; i++){
+    var container = document.getElementById("myEnsemblesContainer");
+    var ensembleContainer = document.createElement("div");
+    var groupTitle = document.createElement("h1");
+    var groupAmount = document.createElement("p");
 
+    container.appendChild(ensembleContainer);
+    ensembleContainer.appendChild(groupTitle);
+    ensembleContainer.appendChild(groupAmount);
 
+    ensembleContainer.id = ("ensembleContainer");
+    groupTitle.id = ("groupTitle" + [i]);
+    groupAmount.id = ("groupAmount" + [i] );
 
+    document.getElementById("groupTitle" + [i]).innerHTML = localStorage.getItem(groups[i].name);
+    document.getElementById("groupAmount" + [i]).innerHTML = localStorage.getItem(groups[i].name);
+  }
+}
+
+function showStorage(){
+  console.log(localStorage);
+}

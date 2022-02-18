@@ -428,3 +428,59 @@ background-color: rgb(245, 245, 245);
     display: none;
 }
 
+#ensembleContainer{
+width: 100px;
+height: 100px;
+background-color: rgb(228, 139, 139);
+}
+
+/* Browse */
+.browseContainer{
+    background-color: rgb(243, 243, 243);
+    width: 90vw;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.pieceCard{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.199);
+    border-radius: 5px;
+    display: flex;
+    color: rgb(0, 0, 0);
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.hidden{
+display: none;
+}
+
+.pieceCard h1{
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    padding: 10% 2%;
+}
+
+.pieceCard:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pieceCard p{
+    padding: 2% 2%;
+    text-align: center;
+}
+
+#titleSearchInput{
+    margin: 2%;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+}
