@@ -339,6 +339,14 @@ nav{
     margin-top: 5vh;
 }
 
+.myEnsemblesContainer{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 100%;
+    justify-content: center;
+}
+
 .myEnsemblesBar{
     flex-direction: row;
     display: flex;
@@ -396,6 +404,7 @@ justify-content: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 15px;
 }
 
 .ensembleCard:hover{
@@ -426,12 +435,6 @@ background-color: rgb(245, 245, 245);
 
 .ensembleCardHide{
     display: none;
-}
-
-#ensembleContainer{
-width: 100px;
-height: 100px;
-background-color: rgb(228, 139, 139);
 }
 
 /* Browse */

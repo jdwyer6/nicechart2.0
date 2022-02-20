@@ -121,34 +121,50 @@ function clearLocalStorage(){
 var groups = [];
 
 function createEnsemble2(){
-  var ensembleTitle = document.getElementById("nameEnsemble").value;
-  var ensembleSize = instrumentation.length;
-  groups.push({name: ensembleTitle, size: ensembleSize});
-  localStorage.setItem("groups", JSON.stringify(groups));
-  var storedGroups = localStorage.getItem("groups");
-  console.log(JSON.parse(storedGroups));
-  console.log(localStorage);
+  
+    var ensembleTitle = document.getElementById("nameEnsemble").value;
+    var ensembleSize = instrumentation.length;
+    groups.push({name: ensembleTitle, size: ensembleSize});
+
+    var groupsSerialized = JSON.stringify(groups);
+    localStorage.setItem("storedGroups", groupsSerialized);
+    console.log(groupsSerialized);
+    
 }
 
-function checkForGroups(){
-var groupsInStorage = localStorage.groups;
+var instIcons = ["images/instIcon1.png", "images/instIcon2.png", "images/instIcon3.png", "images/instIcon4.png", "images/instIcon5.png", "images/instIcon6.png", "images/instIcon7.png"];
 
-  for(i=0; i<groupsInStorage.length; i++){
+function checkForGroups(){
+  var groupsUnserialized = JSON.parse(localStorage.getItem("storedGroups"));
+  console.log(groupsUnserialized);
+
+  for(i=0; i<groupsUnserialized.length; i++){
+    
+
     var container = document.getElementById("myEnsemblesContainer");
     var ensembleContainer = document.createElement("div");
-    var groupTitle = document.createElement("h1");
+    var groupTitle = document.createElement("h3");
     var groupAmount = document.createElement("p");
-
+    var image = document.createElement("img");
+    
     container.appendChild(ensembleContainer);
     ensembleContainer.appendChild(groupTitle);
+    ensembleContainer.className = "ensembleCard";
     ensembleContainer.appendChild(groupAmount);
+    ensembleContainer.appendChild(image);
 
     ensembleContainer.id = ("ensembleContainer");
     groupTitle.id = ("groupTitle" + [i]);
     groupAmount.id = ("groupAmount" + [i] );
+    // imageIndex = Math.floor(Math.random(instIcons.length) * 10);
+    // icon = instIcons[imageIndex];
+    image.src = "images/instIcon7.png";
+   
 
-    document.getElementById("groupTitle" + [i]).innerHTML = localStorage.getItem(groups[i].name);
-    document.getElementById("groupAmount" + [i]).innerHTML = localStorage.getItem(groups[i].size);
+  
+
+    document.getElementById("groupTitle" + [i]).innerHTML = groupsUnserialized[i].name;
+    document.getElementById("groupAmount" + [i]).innerHTML = "Members: " + groupsUnserialized[i].size;
   }
 }
 
