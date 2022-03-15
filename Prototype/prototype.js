@@ -1,6 +1,6 @@
 const draggalbes = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
-const parents = document.querySelectorAll('.selection')
+const rightSection = document.querySelector('.right')
 const instArray = []
 
 draggalbes.forEach(draggable => {
@@ -43,16 +43,14 @@ function getDragAfterElement(container, y){
 
 
 function doStuff(){
-    parents.forEach(selection => {
-        const children = selection.querySelector('.draggable')
-        if(children != null){
-            const idNum = children.id
-            console.log(idNum)
-        }
-        
-    })
-    
-  
+const draggableArray = [...document.querySelectorAll('.draggable')]
+
+for(let i=0; i<draggableArray.length; i++){
+    if (draggableArray[i].closest('.selection') !==null){
+        instArray.push(draggableArray[i].id)
+        console.log(instArray)
+    }
+}
 }
    
 
