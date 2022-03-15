@@ -80,39 +80,8 @@ function displayArray(){
     var element = instrumentation[index].name;
     document.getElementById("names").innerHTML = JSON.stringify(instrumentation);
   }
-  
-  // document.getElementById("names").innerHTML = instNamesDisplay;
+
 };
-
-
-
-
-function createEnsemble(){
-  var ensembleTitle = document.getElementById("nameEnsemble");
-  var createEnsembleLink = document.getElementById("createEnsembleLink");
-  if(ensembleTitle.value.length === 0){
-    alert("Please enter a name for your ensemble");
-    createEnsembleLink.href = "";
-  }else{
-    localStorage.setItem("ensembleSize", instrumentation.length);
-    var ensembleName = document.getElementById("nameEnsemble").value;
-    localStorage.setItem("name", ensembleName);
-    createEnsembleLink.href = "loading.html";
-  }
-}
-
-
-function noEnsembles(){
-  if("ensembleSize" in localStorage){
-    document.getElementById("ensembleCard").className = "ensembleCard";
-    document.getElementById("numberOfMembers").append(localStorage.getItem("ensembleSize"));
-    document.getElementById("ensembleName").innerHTML = localStorage.getItem("name");
-    document.getElementById("noEnsemblesText").innerHTML = "My ensembles:";
-  }else{
-    document.getElementById("noEnsemblesText").innerHTML = "Hmm...It looks like you haven't created an ensemble yet. Click the + to get started!";
-    document.getElementById("ensembleCard").className = "ensembleCardHide";
-  }
-}
 
 function clearLocalStorage(){
   localStorage.clear();
@@ -120,8 +89,13 @@ function clearLocalStorage(){
 
 var groups = [];
 
+function updateCreatedEnsembles(){
+  groups = JSON.parse(localStorage.getItem("storedGroups"));
+  console.log(groups);
+}
+
 function createEnsemble2(){
-  
+  sortInstruments()
     var ensembleTitle = document.getElementById("nameEnsemble").value;
     var ensembleSize = instrumentation.length;
     groups.push({name: ensembleTitle, size: ensembleSize});
@@ -136,36 +110,44 @@ var instIcons = ["images/instIcon1.png", "images/instIcon2.png", "images/instIco
 
 function checkForGroups(){
   var groupsUnserialized = JSON.parse(localStorage.getItem("storedGroups"));
-  console.log(groupsUnserialized);
+  if(groupsUnserialized === null){
+    document.getElementById("noEnsemblesText").innerHTML = "Hmm...It looks like you haven't created an ensemble yet. Click the + to get started!";
+    document.getElementById("ensembleCard").className = "ensembleCardHide";
+  }else{
+    document.getElementById("noEnsemblesText").innerHTML = "My ensembles:";
 
-  for(i=0; i<groupsUnserialized.length; i++){
+    for(i=0; i<groupsUnserialized.length; i++){
     
 
-    var container = document.getElementById("myEnsemblesContainer");
-    var ensembleContainer = document.createElement("div");
-    var groupTitle = document.createElement("h3");
-    var groupAmount = document.createElement("p");
-    var image = document.createElement("img");
-    
-    container.appendChild(ensembleContainer);
-    ensembleContainer.appendChild(groupTitle);
-    ensembleContainer.className = "ensembleCard";
-    ensembleContainer.appendChild(groupAmount);
-    ensembleContainer.appendChild(image);
-
-    ensembleContainer.id = ("ensembleContainer");
-    groupTitle.id = ("groupTitle" + [i]);
-    groupAmount.id = ("groupAmount" + [i] );
-    // imageIndex = Math.floor(Math.random(instIcons.length) * 10);
-    // icon = instIcons[imageIndex];
-    image.src = "images/instIcon7.png";
-   
-
+      var container = document.getElementById("myEnsemblesContainer");
+      var ensembleContainer = document.createElement("div");
+      var groupTitle = document.createElement("h3");
+      var groupAmount = document.createElement("p");
+      var image = document.createElement("img");
+      
+      container.appendChild(ensembleContainer);
+      ensembleContainer.appendChild(groupTitle);
+      ensembleContainer.className = "ensembleCard";
+      ensembleContainer.appendChild(groupAmount);
+      ensembleContainer.appendChild(image);
   
+      ensembleContainer.id = ("ensembleContainer");
+      groupTitle.id = ("groupTitle" + [i]);
+      groupAmount.id = ("groupAmount" + [i] );
+      // imageIndex = Math.floor(Math.random(instIcons.length) * 10);
+      // icon = instIcons[imageIndex];
+      image.src = "images/instIcon7.png";
+     
+  
+    
+  
+      document.getElementById("groupTitle" + [i]).innerHTML = groupsUnserialized[i].name;
+      document.getElementById("groupAmount" + [i]).innerHTML = "Members: " + groupsUnserialized[i].size;
+    }
 
-    document.getElementById("groupTitle" + [i]).innerHTML = groupsUnserialized[i].name;
-    document.getElementById("groupAmount" + [i]).innerHTML = "Members: " + groupsUnserialized[i].size;
   }
+
+
 }
 
 function showStorage(){
