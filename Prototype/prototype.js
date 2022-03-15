@@ -44,15 +44,39 @@ function getDragAfterElement(container, y){
 
 function doStuff(){
 const draggableArray = [...document.querySelectorAll('.draggable')]
+const partNum = [...document.querySelectorAll('.selection')]
 
 for(let i=0; i<draggableArray.length; i++){
-    if (draggableArray[i].closest('.selection') !==null){
-        instArray.push(draggableArray[i].id)
-        console.log(instArray)
+    if (draggableArray[i].closest('.selection-0') !==null){
+        var num = parseInt(draggableArray[i].id)
+        instArray.push(num)
+
+    }else if(draggableArray[i].closest('.selection-1') !==null){
+        var amountToAdd = parseInt(draggableArray[i].id) + 1
+        instArray.push(amountToAdd)
+    }else if(draggableArray[i].closest('.selection-2') !==null){
+        var amountToAdd = parseInt(draggableArray[i].id) + 2
+        instArray.push(amountToAdd)
+    }else if(draggableArray[i].closest('.selection-3') !==null){
+        var amountToAdd = parseInt(draggableArray[i].id) + 3
+        instArray.push(amountToAdd)
+    }else if(draggableArray[i].closest('.selection-4') !==null){
+        var amountToAdd = parseInt(draggableArray[i].id) + 4
+        instArray.push(amountToAdd)
     }
 }
+
+console.log(instArray)
+document.write(instArray)
+
 }
    
+function copy(){
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(instArray.value);
 
+  /* Alert the copied text */
+  alert("Copied the text: ");
+}
    
     

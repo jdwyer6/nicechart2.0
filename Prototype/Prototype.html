@@ -9,61 +9,73 @@
     <script src="prototype.js" defer></script>
 </head>
 <body>
-    <div class="title">
-        <h1>Flex Band</h1>
-        <h3>Part Distribution</h3>
-    </div>
+
+        <div class="title">
+            <h1>Flex-Score</h1>
+            <h3>Orchestration Tool</h3>
+        </div>
+        <div class="copy">
+            <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
+        </div>
+
+    
     <div class="mainContainer">
         <div class="left">
-            <div class="container">
+            <div class="container woodwinds">
                 <p class="draggable" draggable="true" id="1">Piccolo</p>
                 <p class="draggable" draggable="true" id="6">Flute (Advanced)</p>
+                <p class="draggable" draggable="true" id="11">Flute</p>
                 <p class="draggable" draggable="true" id="16">Alto Flute in G</p>
                 <p class="draggable" draggable="true" id="21">Oboe</p>
                 <p class="draggable" draggable="true" id="26">English Horn in F</p>
                 <p class="draggable" draggable="true" id="31">Bassoon</p>
                 <p class="draggable" draggable="true" id="36">Contrabassoon</p>
-                <p class="draggable" draggable="true" id="41">Clarinet in Eb</p>
-                <p class="draggable" draggable="true" id="46">Clarinet in Bb</p>
-                <p class="draggable" draggable="true" id="51">Alto Clarinet in Eb</p>
-                <p class="draggable" draggable="true" id="56">Bass Clarinet in Bb</p>
-                <p class="draggable" draggable="true" id="61">Contrabass Clarinet in Bb</p>
-                <p class="draggable" draggable="true" id="66">Soprano Sax in Bb</p>
-                <p class="draggable" draggable="true" id="71">Alto Sax in Bb</p>
-                <p class="draggable" draggable="true" id="76">Tener Sax in Bb</p>
-                <p class="draggable" draggable="true" id="81">Baritone Sax in Bb</p>
-                <p class="draggable" draggable="true" id="86">Trumpet in Bb (Advanced)</p>
-                <p class="draggable" draggable="true" id="91">Trumpet in Bb</p>
+                <p class="draggable" draggable="true" id="41">Clarinet in E♭</p>
+                <p class="draggable" draggable="true" id="46">Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="51">Alto Clarinet in E♭</p>
+                <p class="draggable" draggable="true" id="56">Bass Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="61">Contrabass Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="66">Soprano Sax in B♭</p>
+                <p class="draggable" draggable="true" id="71">Alto Sax in E♭</p>
+                <p class="draggable" draggable="true" id="76">Tenor Sax in B♭</p>
+                <p class="draggable" draggable="true" id="81">Baritone Sax in E♭</p>
+            </div>
+            <div class="container brass">
+                <p class="draggable" draggable="true" id="86">Trumpet in B♭ (Advanced)</p>
+                <p class="draggable" draggable="true" id="91">Trumpet in B♭</p>
                 <p class="draggable" draggable="true" id="96">Horn in F</p>
                 <p class="draggable" draggable="true" id="101">Trombone</p>
                 <p class="draggable" draggable="true" id="106">Bass Trombone</p>
                 <p class="draggable" draggable="true" id="111">Euphonium B.C.</p>
-                <p class="draggable" draggable="true" id="116">Euphonium T.C. in Bb</p>
+                <p class="draggable" draggable="true" id="116">Euphonium T.C. in B♭</p>
                 <p class="draggable" draggable="true" id="121">Tuba</p>
-                <p class="draggable" draggable="true" id="126">Violin</p>
-                <p class="draggable" draggable="true" id="131">Viola</p>
-                <p class="draggable" draggable="true" id="136">Cello</p>
-                <p class="draggable" draggable="true" id="141">Contrabass</p>
+          
                 <p class="draggable" draggable="true" id="146">Percussion 1</p>
                 <p class="draggable" draggable="true" id="147">Percussion 2</p>
                 <p class="draggable" draggable="true" id="148">Mallet Percussion</p>
                 <p class="draggable" draggable="true" id="149">Timpani</p>
             </div>
+            <div class="container strings">
+                <p class="draggable" draggable="true" id="126">Violin</p>
+                <p class="draggable" draggable="true" id="131">Viola</p>
+                <p class="draggable" draggable="true" id="136">Cello</p>
+                <p class="draggable" draggable="true" id="141">Contrabass</p>
+            </div>
         </div>
         <div class="right"> 
-            <div class="container selection">
-                <p class="part part">Part 1</p>
+            <div class="container selection-0" id="0">
+                <p class="part part1">Part 1</p>
             </div>
-            <div class="container selection">
+            <div class="container selection-1" id="1">
                 <p class="part part2">Part 2</p>
             </div>
-            <div class="container selection">
+            <div class="container selection-2" id="2">
                 <p class="part part3">Part 3</p>
             </div>
-            <div class="container selection">
+            <div class="container selection-3" id="3">
                 <p class="part part4">Part 4</p>
             </div>
-            <div class="container selection">
+            <div class="container selection-4" id="4">
                 <p class="part part5">Part 5</p>
             </div>
             <div class="container selection">
