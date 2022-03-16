@@ -17,6 +17,11 @@
         <div class="copy">
             <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
         </div>
+        <div class="alertContainer hideWindow">
+            <p class="alertText">Success: Text copied to clipboard</p>
+            <p class="copiedText"></p>
+            <button class="button success-button" onclick="closeWindow()">Ok</button>
+        </div>
 
     
     <div class="mainContainer">
@@ -49,17 +54,18 @@
                 <p class="draggable" draggable="true" id="111">Euphonium B.C.</p>
                 <p class="draggable" draggable="true" id="116">Euphonium T.C. in B♭</p>
                 <p class="draggable" draggable="true" id="121">Tuba</p>
-          
-                <p class="draggable" draggable="true" id="146">Percussion 1</p>
-                <p class="draggable" draggable="true" id="147">Percussion 2</p>
-                <p class="draggable" draggable="true" id="148">Mallet Percussion</p>
-                <p class="draggable" draggable="true" id="149">Timpani</p>
             </div>
             <div class="container strings">
                 <p class="draggable" draggable="true" id="126">Violin</p>
                 <p class="draggable" draggable="true" id="131">Viola</p>
                 <p class="draggable" draggable="true" id="136">Cello</p>
                 <p class="draggable" draggable="true" id="141">Contrabass</p>
+            </div>
+            <div class="container percussion">
+                <p class="draggable" draggable="true" id="146">Percussion 1</p>
+                <p class="draggable" draggable="true" id="147">Percussion 2</p>
+                <p class="draggable" draggable="true" id="148">Mallet Percussion</p>
+                <p class="draggable" draggable="true" id="149">Timpani</p>
             </div>
         </div>
         <div class="right"> 
@@ -83,10 +89,6 @@
             </div>
         </div>
     </div>
-  
-   
-
-<button onclick="doStuff()">Press for output</button>
 
 
     

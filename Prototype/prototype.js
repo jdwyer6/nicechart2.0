@@ -1,6 +1,7 @@
 const draggalbes = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 const rightSection = document.querySelector('.right')
+const leftSection = document.querySelector('.left')
 const instArray = []
 
 draggalbes.forEach(draggable => {
@@ -14,12 +15,14 @@ draggalbes.forEach(draggable => {
 })
 
 containers.forEach(container => {
+
     container.addEventListener('dragover', e => {
         e.preventDefault()
         const afterElement = getDragAfterElement(container, e.clientY)
         const draggable = document.querySelector('.dragging')
+        const clone = draggable.cloneNode(true)
         if (afterElement == null){
-            container.appendChild(draggable)
+                container.appendChild(draggable)
         } else {
             container.insertBefore(draggable, afterElement)
         }
@@ -42,9 +45,8 @@ function getDragAfterElement(container, y){
 
 
 
-function doStuff(){
+function addToInstArray(){
 const draggableArray = [...document.querySelectorAll('.draggable')]
-const partNum = [...document.querySelectorAll('.selection')]
 
 for(let i=0; i<draggableArray.length; i++){
     if (draggableArray[i].closest('.selection-0') !==null){
@@ -65,18 +67,34 @@ for(let i=0; i<draggableArray.length; i++){
         instArray.push(amountToAdd)
     }
 }
-
-console.log(instArray)
-document.write(instArray)
-
 }
    
 function copy(){
-   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(instArray.value);
-
-  /* Alert the copied text */
-  alert("Copied the text: ");
+    addToInstArray()
+    const textToCopy = instArray.toString();
+  navigator.clipboard.writeText(textToCopy);
+ 
+  const button = document.querySelector('.button')
+  button.classList.add('animateButton')
+    showWindow();
+    const copiedText = document.querySelector('.copiedText')
+    copiedText.innerHTML=textToCopy
 }
-   
-    
+
+function showWindow(){
+    const alertContainer = document.querySelector('.alertContainer')
+    alertContainer.classList.remove('hideWindow')
+}
+
+function closeWindow(){
+    const alertContainer = document.querySelector('.alertContainer')
+    alertContainer.classList.add('hideWindow')
+}
+
+function saveEnsemble(){
+    localStorage.setItem('currentEnsemble', instArray)
+}
+
+function loadPreviousEnsemble(){
+    localStorage.getItem("currentEnsemble")
+}

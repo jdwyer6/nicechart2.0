@@ -18,12 +18,12 @@ body{
 
 .container{
     padding: 1rem;
-    margin-top: 1rem;
     border-bottom: 1px solid gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-flow: row wrap;
+    min-height: 100px;
 }
 
 .left{
@@ -55,13 +55,16 @@ flex-direction: column;
 }
 
 .draggable.dragging{
-    opacity: .5;
+    background-color: rgb(196, 196, 196);
 }
 
 .part{
     color: white;
+    height: 50px;
     font-size: 30px;
-    height: 5px;
+    vertical-align: top;
+    margin: 0;
+    width: 100%;
 }
 
 .copy{
@@ -78,4 +81,50 @@ flex-direction: column;
     border-radius: 50px;
     background-color: rgb(87, 87, 87);
     color: white;
+    transition: width 1s, height 2s;
 }
+
+.button:hover{
+background-color:rgb(161, 161, 161);
+cursor: pointer;
+}
+
+.alertContainer{
+    background-color: rgb(187, 255, 187);
+    width: 500px;
+    height: 200px;
+    border-radius: 40px;
+    box-shadow: 3px 3px 5px 4px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -250px;
+    top: 120px;
+    overflow: hidden;
+
+}
+
+.alertText{
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.button.success-button{
+background-color: rgba(0, 0, 0, 0);
+border: 2px solid gray;
+color: black;
+}
+
+.button.success-button:hover{
+    background-color: rgb(87, 87, 87);
+    color: white;
+}
+
+.hideWindow{
+    display: none;
+}
+
