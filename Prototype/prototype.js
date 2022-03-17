@@ -72,10 +72,9 @@ for(let i=0; i<draggableArray.length; i++){
 function copy(){
     addToInstArray()
     const textToCopy = instArray.toString();
-  navigator.clipboard.writeText(textToCopy);
- 
-  const button = document.querySelector('.button')
-  button.classList.add('animateButton')
+    navigator.clipboard.writeText(textToCopy);
+    const button = document.querySelector('.button')
+    button.classList.add('animateButton')
     showWindow();
     const copiedText = document.querySelector('.copiedText')
     copiedText.innerHTML=textToCopy
@@ -100,50 +99,37 @@ function loadPreviousEnsemble(){
 }
 
 
-
 function calculateDistribution(){
-    anychart.onDocumentReady(function() {
-        const chartContainer = document.getElementById('chartContainer')
-        rightPartContainers = [...rightSection.querySelectorAll('.container')]
-        for(let i=0; i<rightPartContainers.length; i++){
-            var part1 = (rightPartContainers[0].childElementCount - 1)
-            var part2 = (rightPartContainers[1].childElementCount - 1)
-            var part3 = (rightPartContainers[2].childElementCount - 1)
-            var part4 = (rightPartContainers[3].childElementCount - 1)
-            var part5 = (rightPartContainers[4].childElementCount - 1)
-            var partPercussion = (rightPartContainers[5].childElementCount - 1)
-        }
-        // set the data
-        var data = [
-            {x: "Part 1", value: part1},
-            {x: "Part 2", value: part2},
-            {x: "Part 3", value: part3},
-            {x: "Part 4", value: part4},
-            {x: "Part 5", value: part5},
-            {x: "Percussion", value: partPercussion}
-        ];
-        
-        // create the chart
-        var chart = anychart.pie();
-        if(chartContainer.hasChildNodes() === true){
-            chart.deleteData(data)
-            chart.data(data)
-        }else{
-            // add the data
-            chart.data(data);
-        }
-        
+    var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5", "Percussion"];
 
-        // set the chart title
-        chart.title("Distribution");
-      
-       
-      
-        // display the chart in the container
-        chart.container('chartContainer');
-        chart.draw();
-        chart.fill("aquastyle");
-      
-      });
+    const chartContainer = document.getElementById('chartContainer')
+    rightPartContainers = [...rightSection.querySelectorAll('.container')]
+    for(let i=0; i<rightPartContainers.length; i++){
+        var part1 = (rightPartContainers[0].childElementCount - 1)
+        var part2 = (rightPartContainers[1].childElementCount - 1)
+        var part3 = (rightPartContainers[2].childElementCount - 1)
+        var part4 = (rightPartContainers[3].childElementCount - 1)
+        var part5 = (rightPartContainers[4].childElementCount - 1)
+        var partPercussion = (rightPartContainers[5].childElementCount - 1)
+    }
+
+    var yArray = [part1, part2, part3, part4, part5, partPercussion];
+    var layout = {title:"Part Distribution"};
+    var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
+    Plotly.newPlot("myPlot", data, layout);
+
+    setTimeout(calculateDistribution, 1000);
 }
 
+calculateDistribution();
+
+
+
+const instruments = [{name: 'Flute (Advanced)', id: 6, weight: .5}, 
+{name: 'Flute', id: 11, weight: 1},
+];
+
+ 
+    // for(let i=0; i<instruments.length; i++){
+    //     console.log(instruments.id[0])
+    // }

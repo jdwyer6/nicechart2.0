@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Prototype</title>
     <link rel="stylesheet" href="prototypeStyle.css">
     <script src="prototype.js" defer></script>
@@ -89,10 +88,15 @@
             <div class="container selection">
                 <p class="part percussion">Percussion</p>
             </div>
-            <div id="chartContainer"></div>
-            <button type="button" class="button" onclick="calculateDistribution()">Calculate Part Distribution</button>
+            <div class="chart">
+                <button type="button" class="button chart-button" onclick="calculateDistribution()">Calculate Part Distribution</button>
+                <div id="myPlot" style="width:100%;max-width:700px"></div>
+            </div>
+            
         </div>
     </div>
+    
+   
     
 
     
