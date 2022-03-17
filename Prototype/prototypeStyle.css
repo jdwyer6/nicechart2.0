@@ -128,3 +128,9 @@ color: black;
     display: none;
 }
 
+#chartContainer{
+    height: 400px;
+    margin: 30px 200px;
+    border-radius: 50px;
+    width: 1000px;
+}

@@ -98,3 +98,52 @@ function saveEnsemble(){
 function loadPreviousEnsemble(){
     localStorage.getItem("currentEnsemble")
 }
+
+
+
+function calculateDistribution(){
+    anychart.onDocumentReady(function() {
+        const chartContainer = document.getElementById('chartContainer')
+        rightPartContainers = [...rightSection.querySelectorAll('.container')]
+        for(let i=0; i<rightPartContainers.length; i++){
+            var part1 = (rightPartContainers[0].childElementCount - 1)
+            var part2 = (rightPartContainers[1].childElementCount - 1)
+            var part3 = (rightPartContainers[2].childElementCount - 1)
+            var part4 = (rightPartContainers[3].childElementCount - 1)
+            var part5 = (rightPartContainers[4].childElementCount - 1)
+            var partPercussion = (rightPartContainers[5].childElementCount - 1)
+        }
+        // set the data
+        var data = [
+            {x: "Part 1", value: part1},
+            {x: "Part 2", value: part2},
+            {x: "Part 3", value: part3},
+            {x: "Part 4", value: part4},
+            {x: "Part 5", value: part5},
+            {x: "Percussion", value: partPercussion}
+        ];
+        
+        // create the chart
+        var chart = anychart.pie();
+        if(chartContainer.hasChildNodes() === true){
+            chart.deleteData(data)
+            chart.data(data)
+        }else{
+            // add the data
+            chart.data(data);
+        }
+        
+
+        // set the chart title
+        chart.title("Distribution");
+      
+       
+      
+        // display the chart in the container
+        chart.container('chartContainer');
+        chart.draw();
+        chart.fill("aquastyle");
+      
+      });
+}
+
