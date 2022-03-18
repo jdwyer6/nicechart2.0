@@ -10,8 +10,10 @@ draggalbes.forEach(draggable => {
     })
 
     draggable.addEventListener('dragend', () => {
+
         draggable.classList.remove('dragging')
     })
+
 })
 
 containers.forEach(container => {
@@ -26,7 +28,9 @@ containers.forEach(container => {
         } else {
             container.insertBefore(draggable, afterElement)
         }
+        
     })
+
 })
 
 function getDragAfterElement(container, y){
