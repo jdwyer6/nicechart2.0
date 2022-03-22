@@ -202,7 +202,9 @@ function calculateDistribution(){
     }
 
     var yArray = [part1, part2, part3, part4, part5];
-    var layout = {title:"Part Distribution"};
+    var layout = {title:"Part Distribution", 
+        colorway : ['#568FA6', '#C4EEF2', '#BAD9BF', '#E9F1F2', '#4a4e4e']
+      };
     var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
     Plotly.newPlot("myPlot", data, layout);
 
@@ -212,7 +214,23 @@ function calculateDistribution(){
 calculateDistribution();
 
 
+// Copy Button
+let button = document.querySelector('.button');
+let buttonText = document.querySelector('.tick');
 
+const tickMark = "<svg width=\"58\" height=\"45\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#fff\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
+
+buttonText.innerHTML = "Copy";
+
+button.addEventListener('click', function() {
+
+  if (buttonText.innerHTML !== "Copy") {
+    buttonText.innerHTML = "Copy";
+  } else if (buttonText.innerHTML === "Copy") {
+    buttonText.innerHTML = tickMark;
+  }
+  this.classList.toggle('button__circle');
+});
 
 
 
