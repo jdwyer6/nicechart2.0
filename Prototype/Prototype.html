@@ -19,6 +19,9 @@
             <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
         </div>
         <div class="alertContainer hideWindow">
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
             <p class="alertText">Success: Text copied to clipboard</p>
             <p class="copiedText"></p>
             <button class="button success-button" onclick="closeWindow()">Ok</button>
@@ -62,34 +65,61 @@
                 <p class="draggable" draggable="true" id="136">Cello</p>
                 <p class="draggable" draggable="true" id="141">Contrabass</p>
             </div>
-            <div class="container percussion">
-                <p class="draggable" draggable="true" id="146">Percussion 1</p>
-                <p class="draggable" draggable="true" id="147">Percussion 2</p>
-                <p class="draggable" draggable="true" id="148">Mallet Percussion</p>
-                <p class="draggable" draggable="true" id="149">Timpani</p>
-            </div>
+            <!-- <div class="container percussion">
+            </div> -->
         </div>
         <div class="right"> 
-            <div class="container selection-0" id="0">
+            <div class="container selection-0 droppable" id="0">
                 <p class="part part1">Part 1</p>
             </div>
-            <div class="container selection-1" id="1">
+            <div class="container selection-1 droppable" id="1">
                 <p class="part part2">Part 2</p>
             </div>
-            <div class="container selection-2" id="2">
+            <div class="container selection-2 droppable" id="2">
                 <p class="part part3">Part 3</p>
             </div>
-            <div class="container selection-3" id="3">
+            <div class="container selection-3 droppable" id="3">
                 <p class="part part4">Part 4</p>
             </div>
-            <div class="container selection-4" id="4">
+            <div class="container selection-4 droppable" id="4">
                 <p class="part part5">Part 5</p>
             </div>
-            <div class="container selection">
+            <div class="container selection percussionRight">
                 <p class="part percussion">Percussion</p>
+                <div class="percussionInstrument">
+                    <p>Percussion 1</p>
+                    <label class="switch">
+                        <input type="checkbox" id="146">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="percussionInstrument">
+                    <p>Percussion 2</p>
+                    <label class="switch">
+                        <input type="checkbox" id="147">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="percussionInstrument">
+                    <p>Mallet Percussion</p>
+                    <label class="switch">
+                        <input type="checkbox" id="148">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="percussionInstrument">
+                    <p>Timpani</p>
+                    <label class="switch">
+                        <input type="checkbox" id="149">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                
+                
+                
+                
             </div>
             <div class="chart">
-                <button type="button" class="button chart-button" onclick="calculateDistribution()">Calculate Part Distribution</button>
                 <div id="myPlot" style="width:100%;max-width:700px"></div>
             </div>
             

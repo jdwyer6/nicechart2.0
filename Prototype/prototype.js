@@ -2,7 +2,12 @@ const draggalbes = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 const rightSection = document.querySelector('.right')
 const leftSection = document.querySelector('.left')
-const instArray = []
+var instArray = []
+// var afterElement;
+// var clone;
+// var container;
+
+
 
 draggalbes.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
@@ -10,28 +15,54 @@ draggalbes.forEach(draggable => {
     })
 
     draggable.addEventListener('dragend', () => {
-
         draggable.classList.remove('dragging')
     })
 
 })
 
+
 containers.forEach(container => {
 
     container.addEventListener('dragover', e => {
         e.preventDefault()
-        const afterElement = getDragAfterElement(container, e.clientY)
+        afterElement = getDragAfterElement(container, e.clientY)
         const draggable = document.querySelector('.dragging')
-        const clone = draggable.cloneNode(true)
-        if (afterElement == null){
-                container.appendChild(draggable)
-        } else {
+        clone = draggable.cloneNode(true)
+        // if (afterElement == null){
+        //     container.appendChild(draggable)
+        // } else {
+        // container.insertBefore(draggable, afterElement)
+        // }
+
+        draggable.addEventListener('dragend', () => {
+            if (afterElement == null){
+            container.appendChild(clone)
+            } else if(afterElement != null && afterElement.classList.contains('.droppable')){
             container.insertBefore(draggable, afterElement)
-        }
+            }
+        })
         
     })
 
 })
+
+// const droppableContainers = document.querySelectorAll('.droppable')
+
+// droppableContainers.forEach(dc => {
+//     dc.addEventListener('dragenter', e => {
+//         e.preventDefault()
+//         dc.classList.add('hovering')
+//         console.log('enter')
+//     });
+//     dc.addEventListener('dragleave', () => {
+//         dc.classList.remove('hovering')
+//         console.log('exit')
+//     });
+
+// })
+
+
+
 
 function getDragAfterElement(container, y){
     const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
@@ -50,39 +81,87 @@ function getDragAfterElement(container, y){
 
 
 function addToInstArray(){
-const draggableArray = [...document.querySelectorAll('.draggable')]
+    const draggableArray = [...document.querySelectorAll('.draggable')]
 
-for(let i=0; i<draggableArray.length; i++){
-    if (draggableArray[i].closest('.selection-0') !==null){
-        var num = parseInt(draggableArray[i].id)
-        instArray.push(num)
+    for(let i=0; i<draggableArray.length; i++){
+        if (draggableArray[i].closest('.selection-0') !==null){
+            var num = parseInt(draggableArray[i].id)
+            instArray.push(num)
 
-    }else if(draggableArray[i].closest('.selection-1') !==null){
-        var amountToAdd = parseInt(draggableArray[i].id) + 1
-        instArray.push(amountToAdd)
-    }else if(draggableArray[i].closest('.selection-2') !==null){
-        var amountToAdd = parseInt(draggableArray[i].id) + 2
-        instArray.push(amountToAdd)
-    }else if(draggableArray[i].closest('.selection-3') !==null){
-        var amountToAdd = parseInt(draggableArray[i].id) + 3
-        instArray.push(amountToAdd)
-    }else if(draggableArray[i].closest('.selection-4') !==null){
-        var amountToAdd = parseInt(draggableArray[i].id) + 4
-        instArray.push(amountToAdd)
+        }else if(draggableArray[i].closest('.selection-1') !==null){
+            var amountToAdd = parseInt(draggableArray[i].id) + 1
+            instArray.push(amountToAdd)
+        }else if(draggableArray[i].closest('.selection-2') !==null){
+            var amountToAdd = parseInt(draggableArray[i].id) + 2
+            instArray.push(amountToAdd)
+        }else if(draggableArray[i].closest('.selection-3') !==null){
+            var amountToAdd = parseInt(draggableArray[i].id) + 3
+            instArray.push(amountToAdd)
+        }else if(draggableArray[i].closest('.selection-4') !==null){
+            var amountToAdd = parseInt(draggableArray[i].id) + 4
+            instArray.push(amountToAdd)
+        }
     }
-}
+
+    const percussion1 = document.getElementById('146')
+    const percussion2 = document.getElementById('147')
+    const malletPercussion = document.getElementById('148')
+    const timpani = document.getElementById('149')
+    if(percussion1.checked === true){
+        instArray.push(146)
+    }
+    if(percussion2.checked === true){
+        instArray.push(147)
+    }
+    if(malletPercussion.checked === true){
+        instArray.push(148)
+    }
+    if(timpani.checked === true){
+        instArray.push(149)
+    }
+
 }
    
 function copy(){
-    addToInstArray()
+    if(instArray.length === 0){
+        addToInstArray()
+    }else{
+        instArray = []
+        addToInstArray()
+    }
+    instArray.sort();
     const textToCopy = instArray.toString();
-    navigator.clipboard.writeText(textToCopy);
-    const button = document.querySelector('.button')
-    button.classList.add('animateButton')
-    showWindow();
     const copiedText = document.querySelector('.copiedText')
+    navigator.clipboard.writeText(textToCopy);
     copiedText.innerHTML=textToCopy
+    const button = document.querySelector('.button')
+    showWindow();
+    progressBar()
+    var timeout = 1100
+    setTimeout(closeWindow, timeout)
 }
+
+    
+function progressBar() {
+    var i = 0;
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
+
 
 function showWindow(){
     const alertContainer = document.querySelector('.alertContainer')
@@ -129,11 +208,14 @@ calculateDistribution();
 
 
 
-const instruments = [{name: 'Flute (Advanced)', id: 6, weight: .5}, 
-{name: 'Flute', id: 11, weight: 1},
-];
+
+
+
+// const instruments = [{name: 'Flute (Advanced)', id: 6, weight: .5}, 
+// {name: 'Flute', id: 11, weight: 1},
+// ];
 
  
-    // for(let i=0; i<instruments.length; i++){
-    //     console.log(instruments.id[0])
-    // }
+//     // for(let i=0; i<instruments.length; i++){
+//     //     console.log(instruments.id[0])
+//     // }
