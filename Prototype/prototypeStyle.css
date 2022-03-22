@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato&family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
+/* reference: https://dribbble.com/shots/6753672-Online-Banking-Application */
+:root{
+    --mainBlue: #568FA6;
+    --lightBlue: #C4EEF2;
+    --turquoise: #7AB8BF;
+    --gray: #E9F1F2;
+    --darkGray: #4a4e4e;
+    --green: #BAD9BF;
+}
 
 body{
     margin: 0;
-    background-color: #333;
+    background-color: white;
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .title{
     text-align: center;
-    color: white;
+    color: var(--darkGray)
 }
 
 .mainContainer{
@@ -18,7 +27,7 @@ body{
 
 .container{
     padding: 1rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(187, 187, 187);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +37,7 @@ body{
 
 .left{
 width: 33%;
-background-color:rgb(87, 87, 87);
+background-color:white;
 border-radius: 5px;
 margin: 0 10px 0 200px;
 display: flex;
@@ -37,14 +46,14 @@ flex-direction: column;
 
 .right{
     width: 66%;
-    background-color: rgb(87, 87, 87);
+    background-color: var(--gray);
     border-radius: 5px;
     margin: 0 200px 0 10px;
 }
 
 .draggable{
     padding: 2px;
-    background-color: white;
+    background-color: var(--green);
     border: 0;
     cursor: move;
     border-radius: 50px;
@@ -54,12 +63,17 @@ flex-direction: column;
     text-align: center;
 }
 
+.draggable:hover{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid var(--mainBlue)
+}
+
 .draggable.dragging{
-    background-color: rgb(196, 196, 196);
+    background-color: var(--blue);
 }
 
 .part{
-    color: white;
+    color: var(--darkGray);
     height: 50px;
     font-size: 30px;
     vertical-align: top;
@@ -79,14 +93,15 @@ flex-direction: column;
     width: 200px;
     border: none;
     border-radius: 50px;
-    background-color: rgb(87, 87, 87);
-    color: white;
+    background-color: var(--gray);
+    color: var(--darkGray);
     margin-bottom: 10px;
 }
 
 .button:hover{
-    background-color:rgb(161, 161, 161);
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
+    border: 2px solid var(--mainBlue)
 }
 
 .alertContainer{
@@ -157,10 +172,12 @@ color: black;
   }
 
   .percussionRight{
-      border-top: 10px solid gray;
+      border-top: 1px solid rgb(187, 187, 187);
+      margin-top: 10px;
       display: flex;
       flex-direction: row;
-      background-color: rgb(102, 58, 58);
+      background-color: var(--gray);
+      border-bottom: none;
   }
 
   .percussionInstrument{

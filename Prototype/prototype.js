@@ -40,11 +40,17 @@ containers.forEach(container => {
             } else if(afterElement != null && afterElement.classList.contains('.droppable')){
             container.insertBefore(draggable, afterElement)
             }
+            clone.addEventListener('click', remove)
+            clone.draggable = false;
         })
         
     })
 
 })
+
+function remove(){
+    this.remove()
+}
 
 // const droppableContainers = document.querySelectorAll('.droppable')
 
@@ -119,7 +125,6 @@ function addToInstArray(){
     if(timpani.checked === true){
         instArray.push(149)
     }
-
 }
    
 function copy(){
@@ -129,7 +134,7 @@ function copy(){
         instArray = []
         addToInstArray()
     }
-    instArray.sort();
+    console.log(instArray)
     const textToCopy = instArray.toString();
     const copiedText = document.querySelector('.copiedText')
     navigator.clipboard.writeText(textToCopy);
@@ -183,7 +188,7 @@ function loadPreviousEnsemble(){
 
 
 function calculateDistribution(){
-    var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5", "Percussion"];
+    var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5"];
 
     const chartContainer = document.getElementById('chartContainer')
     rightPartContainers = [...rightSection.querySelectorAll('.container')]
@@ -196,7 +201,7 @@ function calculateDistribution(){
         var partPercussion = (rightPartContainers[5].childElementCount - 1)
     }
 
-    var yArray = [part1, part2, part3, part4, part5, partPercussion];
+    var yArray = [part1, part2, part3, part4, part5];
     var layout = {title:"Part Distribution"};
     var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
     Plotly.newPlot("myPlot", data, layout);
