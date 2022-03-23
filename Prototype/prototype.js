@@ -35,13 +35,16 @@ containers.forEach(container => {
         // }
 
         draggable.addEventListener('dragend', () => {
-            if (afterElement == null){
+            if (afterElement == null && container.classList.contains('droppable')){
             container.appendChild(clone)
-            } else if(afterElement != null && afterElement.classList.contains('.droppable')){
+            } else if(afterElement != null && container.classList.contains('droppable')){
             container.insertBefore(draggable, afterElement)
+            }else{
+                clone.remove()
             }
             clone.addEventListener('click', remove)
             clone.draggable = false;
+            clone.classList.add('dropped')
         })
         
     })
@@ -140,10 +143,10 @@ function copy(){
     navigator.clipboard.writeText(textToCopy);
     copiedText.innerHTML=textToCopy
     const button = document.querySelector('.button')
-    showWindow();
+    // showWindow();
     progressBar()
-    var timeout = 1100
-    setTimeout(closeWindow, timeout)
+    // var timeout = 1100
+    // setTimeout(closeWindow, timeout)
 }
 
     
@@ -215,10 +218,10 @@ calculateDistribution();
 
 
 // Copy Button
-let button = document.querySelector('.button');
+let button = document.querySelector('.buttonCheck');
 let buttonText = document.querySelector('.tick');
 
-const tickMark = "<svg width=\"58\" height=\"45\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#fff\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
+const tickMark = "<svg width=\"27\" height=\"23\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#4a4e4e\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
 
 buttonText.innerHTML = "Copy";
 
@@ -229,7 +232,7 @@ button.addEventListener('click', function() {
   } else if (buttonText.innerHTML === "Copy") {
     buttonText.innerHTML = tickMark;
   }
-  this.classList.toggle('button__circle');
+  this.classList.toggle('buttonCheck__circle');
 });
 
 

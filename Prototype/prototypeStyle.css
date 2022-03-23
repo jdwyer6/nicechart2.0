@@ -17,7 +17,12 @@ body{
 
 .title{
     text-align: center;
-    color: var(--darkGray)
+    color: var(--darkGray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .mainContainer{
@@ -55,7 +60,7 @@ flex-direction: column;
     padding: 2px;
     background-color: var(--green);
     border: 0;
-    cursor: move;
+    cursor: grab;
     border-radius: 50px;
     width: 12rem;
     height: 20px;
@@ -67,10 +72,16 @@ flex-direction: column;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid var(--mainBlue);
     margin: 2px;
+    cursor: grab;
 }
 
 .draggable.dragging{
     background-color: var(--blue);
+    cursor: grabbing;
+}
+
+.draggable.dragging.dropped{
+    cursor: pointer;
 }
 
 .part{
@@ -173,7 +184,7 @@ color: black;
     padding: 5px;
     background-color: white;
     border: 0;
-    cursor: move;
+    cursor: pointer;
     border-radius: 50px;
     width: 200px;
     height: 30px;
@@ -254,22 +265,46 @@ color: black;
 
 /* Copy Button */
   
-  .button svg {
+.buttonCheck, .tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  body {
+    width: 100%;
+    height: 90vh;
+  }
+  
+  .buttonCheck {
+    width: 200px;
+    height: 40px;
+    background: var(--mainBlue);
+    border-radius: 6px;
+    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+    margin-bottom: 20px;
+  }
+  
+  .buttonCheck svg {
     transform: rotate(180deg);
     transition: all .5s;
   }
   
-  .button__circle {
-    width: 120px;
-    height: 120px;
-    background: mediumseagreen;
+  .buttonCheck__circle {
+    width: 40px;
+    height: 40px;
+    background: var(--green);
     border-radius: 50%;
     transform: rotate(-180deg);
   }
-
+  
+  .buttonCheck:hover {
+    cursor: pointer;
+  }
+  
   .tick {
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     transition: all .9s;
-    height: 120px;
   }
