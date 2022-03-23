@@ -25,6 +25,10 @@ body{
 
 }
 
+.topContainer{
+    width: 100%;
+}
+
 .mainContainer{
     display: flex;
     flex-direction: row;
@@ -41,19 +45,31 @@ body{
 }
 
 .left{
-width: 33%;
+width: 40%;
 background-color:white;
 border-radius: 5px;
-margin: 0 10px 0 200px;
+margin-right: 10px;
+margin-left: 200px;
 display: flex;
 flex-direction: column;
 }
 
 .right{
-    width: 66%;
+    width: 60%;
     background-color: var(--gray);
     border-radius: 5px;
     margin: 0 200px 0 10px;
+}
+
+@media screen and (max-width: 1200px){
+    .right{
+        margin-right: 50px;
+    }
+
+    .left{
+        margin-left: 50px;
+        width: 50%;
+    }
 }
 
 .draggable{
@@ -284,6 +300,8 @@ color: black;
     border-radius: 6px;
     transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
     margin-bottom: 20px;
+    float: right;
+    margin-right: 200px;
   }
   
   .buttonCheck svg {
