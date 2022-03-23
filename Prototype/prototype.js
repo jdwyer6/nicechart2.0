@@ -237,11 +237,26 @@ button.addEventListener('click', function() {
 
 
 
-// const instruments = [{name: 'Flute (Advanced)', id: 6, weight: .5}, 
-// {name: 'Flute', id: 11, weight: 1},
-// ];
+const instruments = [
+    {"name": 'Flute (Advanced)',
+    "abvName": 'Fl.(Adv)',
+    "id": 6,
+    "weight": .5,
+    "common": false
+    },
+    {
+    "name": 'Flute',
+    "abvName": 'Fl.',
+    "id": 11,
+    "weight": 1,
+    "common": true
+    }
+]
 
- 
-//     // for(let i=0; i<instruments.length; i++){
-//     //     console.log(instruments.id[0])
-//     // }
+ function instTest(){
+     for(let i=0; i<instruments.length; i++){
+         console.log(instruments[0].common)
+     }
+ }
+
+instTest()
