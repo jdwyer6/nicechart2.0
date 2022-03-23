@@ -201,7 +201,6 @@ function calculateDistribution(){
         var part3 = (rightPartContainers[2].childElementCount - 1)
         var part4 = (rightPartContainers[3].childElementCount - 1)
         var part5 = (rightPartContainers[4].childElementCount - 1)
-        var partPercussion = (rightPartContainers[5].childElementCount - 1)
     }
 
     var yArray = [part1, part2, part3, part4, part5];
