@@ -225,17 +225,22 @@ const instruments = [
     "common": true
     }
     ]
-    
+ 
 const draggalbes = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 const rightSection = document.querySelector('.right')
 const leftSection = document.querySelector('.left')
 var instArray = []
 
-
-
+const draggablesArray = [...document.querySelectorAll('.draggable')]
+for(i=0; i<draggalbes.length; i++){
+    draggablesArray[i].innerHTML = instruments[i].name
+    draggablesArray[i].id = instruments[i].id
+    console.log(draggablesArray[i].id)
+}
 
 draggalbes.forEach(draggable => {
+
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging');
     })
@@ -364,7 +369,6 @@ function copy(){
         instArray = []
         addToInstArray()
     }
-    console.log(instArray)
     const textToCopy = instArray.toString();
     const copiedText = document.querySelector('.copiedText')
     navigator.clipboard.writeText(textToCopy);
@@ -396,8 +400,17 @@ function calculateDistribution(){
     var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5"];
 
     const chartContainer = document.getElementById('chartContainer')
-    rightPartContainers = [...rightSection.querySelectorAll('.container')]
+    var rightPartContainers = [...rightSection.querySelectorAll('.container')]
+    // var droppables = [...document.querySelectorAll('.droppable')]
     for(let i=0; i<rightPartContainers.length; i++){
+        // var part1Children = rightPartContainers[0].children
+        // for(let j=0; j<part1Children.length; j++) {
+        //     if(instruments.includes(part1Children[j].innerHTML)){
+        //         console.log(yes)
+        //     }else{
+        //         break
+        //     }
+        // }
         var part1 = (rightPartContainers[0].childElementCount - 1)
         var part2 = (rightPartContainers[1].childElementCount - 1)
         var part3 = (rightPartContainers[2].childElementCount - 1)
