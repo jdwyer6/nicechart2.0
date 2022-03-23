@@ -453,16 +453,16 @@ function calculateStaffSize(){
            staffSize = 2.2;
           break;
         case 3:
-            staffSize = 2.2;
+            staffSize = 3.4;
           break;
         case 4:
-            staffSize = 2.2;
+            staffSize = 4.3;
           break;
         case 5:
-            staffSize = 2.2;
+            staffSize = 4.8;
           break;
         case 6:
-            staffSize = 2.2;
+            staffSize = 5.1;
       }
 
       const staffText = document.querySelector('.staffSize')
