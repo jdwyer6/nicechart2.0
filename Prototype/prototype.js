@@ -355,7 +355,8 @@ function addToInstArray(){
         instArray.push(149)
     }
 }
-   
+
+   // Copy Array
 function copy(){
     if(instArray.length === 0){
         addToInstArray()
@@ -367,35 +368,10 @@ function copy(){
     const textToCopy = instArray.toString();
     const copiedText = document.querySelector('.copiedText')
     navigator.clipboard.writeText(textToCopy);
-    copiedText.innerHTML=textToCopy
+    // copiedText.innerHTML = textToCopy
     const button = document.querySelector('.button')
-    // showWindow();
-    progressBar()
-    // var timeout = 1100
-    // setTimeout(closeWindow, timeout)
+    calculateStaffSize()
 }
-
-    
-function progressBar() {
-    var i = 0;
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-      }
-    }
-  }
-}
-
-
 
 function showWindow(){
     const alertContainer = document.querySelector('.alertContainer')
@@ -415,7 +391,7 @@ function loadPreviousEnsemble(){
     localStorage.getItem("currentEnsemble")
 }
 
-
+//Plotly.js and Calculate Part distribution
 function calculateDistribution(){
     var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5"];
 
@@ -430,7 +406,7 @@ function calculateDistribution(){
     }
 
     var yArray = [part1, part2, part3, part4, part5];
-    var layout = {title:"Part Distribution", 
+    var layout = {title:"Part Distribution",
         colorway : ['#568FA6', '#C4EEF2', '#BAD9BF', '#E9F1F2', '#4a4e4e']
       };
     var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
@@ -459,6 +435,40 @@ button.addEventListener('click', function() {
   }
   this.classList.toggle('buttonCheck__circle');
 });
+
+// Unique Parts and Score Size
+function calculateStaffSize(){
+    let uniqueCharsSet = [...new Set(instArray)]
+    let uniqueCharsArray = Array.from(uniqueCharsSet)
+    var ensembleSize = uniqueCharsArray.length
+    var staffSize = 0
+    switch (ensembleSize) {
+        case 0:
+           staffSize = 0.1;
+          break;
+        case 1:
+          staffSize = 1.1;
+          break;
+        case 2:
+           staffSize = 2.2;
+          break;
+        case 3:
+            staffSize = 2.2;
+          break;
+        case 4:
+            staffSize = 2.2;
+          break;
+        case 5:
+            staffSize = 2.2;
+          break;
+        case 6:
+            staffSize = 2.2;
+      }
+
+      const staffText = document.querySelector('.staffSize')
+      staffText.innerHTML = 'Staff Size: ' + staffSize;
+}
+
 
 
 

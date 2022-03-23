@@ -29,6 +29,12 @@ body{
     width: 100%;
 }
 
+.staffSize{
+    padding: 0;
+    float: right;
+    margin-right: 10px;
+}
+
 .mainContainer{
     display: flex;
     flex-direction: row;
@@ -42,6 +48,10 @@ body{
     justify-content: center;
     flex-flow: row wrap;
     min-height: 100px;
+}
+
+.container.strings{
+    min-height: 60px;
 }
 
 .left{
