@@ -15,6 +15,10 @@ body{
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.svg{
+    float: left;
+}
+
 .title{
     text-align: center;
     color: var(--darkGray);
