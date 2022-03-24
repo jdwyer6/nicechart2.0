@@ -12,14 +12,18 @@
 <body>
 
     <div class="title">
-        <h1>Flex-Score</h1>
-        <h3>Orchestration Tool</h3>
-        <div class="buttonCheck" onclick="copy()">
-            <div class="containerCheck">
-                <div class="tick">
+        <div class="topContainer">
+            <h1>Flex-Score</h1>
+            <h3>Orchestration Tool</h3>
+            <div class="buttonCheck" onclick="copy()">
+                <div class="containerCheck">
+                    <div class="tick">
+                    </div>
                 </div>
             </div>
+            <p class="staffSize">Staff Size: ?</p>
         </div>
+       
     </div>
     <!-- <div class="copy">
         <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
@@ -34,8 +38,8 @@
     <div class="mainContainer">
         <div class="left">
             <div class="container woodwinds">
-                <p class="draggable" draggable="true" id="1">Piccolo</p>
-                <p class="draggable" draggable="true" id="6">Flute (Advanced)</p>
+                <p class="draggable" draggable="true" id="">Piccolo</p>
+                <p class="draggable" draggable="true" id="">Flute (Advanced)</p>
                 <p class="draggable" draggable="true" id="11">Flute</p>
                 <p class="draggable" draggable="true" id="16">Alto Flute in G</p>
                 <p class="draggable" draggable="true" id="21">Oboe</p>
@@ -121,12 +125,9 @@
                       </label>
                 </div>
                 
-                
-                
-                
             </div>
-           
-            
+
+            <button class="testButton" onclick="calculateStaffSize()">Test Button</button>
         </div>
     </div>
     
