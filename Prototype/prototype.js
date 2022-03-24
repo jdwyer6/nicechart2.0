@@ -236,7 +236,6 @@ const draggablesArray = [...document.querySelectorAll('.draggable')]
 for(i=0; i<draggalbes.length; i++){
     draggablesArray[i].innerHTML = instruments[i].name
     draggablesArray[i].id = instruments[i].id
-    console.log(draggablesArray[i].id)
 }
 
 draggalbes.forEach(draggable => {
@@ -285,24 +284,6 @@ containers.forEach(container => {
 function remove(){
     this.remove()
 }
-
-// const droppableContainers = document.querySelectorAll('.droppable')
-
-// droppableContainers.forEach(dc => {
-//     dc.addEventListener('dragenter', e => {
-//         e.preventDefault()
-//         dc.classList.add('hovering')
-//         console.log('enter')
-//     });
-//     dc.addEventListener('dragleave', () => {
-//         dc.classList.remove('hovering')
-//         console.log('exit')
-//     });
-
-// })
-
-
-
 
 function getDragAfterElement(container, y){
     const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
@@ -398,27 +379,83 @@ function loadPreviousEnsemble(){
 //Plotly.js and Calculate Part distribution
 function calculateDistribution(){
     var xArray = ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5"];
+    var part1Weight = 0;
+    var part2Weight = 0;
+    var part3Weight = 0;
+    var part4Weight = 0;
+    var part5Weight = 0;
 
     const chartContainer = document.getElementById('chartContainer')
     var rightPartContainers = [...rightSection.querySelectorAll('.container')]
-    // var droppables = [...document.querySelectorAll('.droppable')]
-    for(let i=0; i<rightPartContainers.length; i++){
-        // var part1Children = rightPartContainers[0].children
-        // for(let j=0; j<part1Children.length; j++) {
-        //     if(instruments.includes(part1Children[j].innerHTML)){
-        //         console.log(yes)
-        //     }else{
-        //         break
-        //     }
-        // }
-        var part1 = (rightPartContainers[0].childElementCount - 1)
-        var part2 = (rightPartContainers[1].childElementCount - 1)
-        var part3 = (rightPartContainers[2].childElementCount - 1)
-        var part4 = (rightPartContainers[3].childElementCount - 1)
-        var part5 = (rightPartContainers[4].childElementCount - 1)
+    var droppedElements = [...document.querySelectorAll('.dropped')]
+    const part1Children = document.querySelector('.selection-0').children
+    const part1ChildrenArray = Array(part1Children)
+
+    // Part 1
+    for(let i=0; i < droppedElements.length; i++){
+        if(droppedElements[i].parentElement?.classList.contains('selection-0')){
+            var currentElementId = parseInt(droppedElements[i].id)
+            var result = instruments.find(obj => {
+                return obj.id === currentElementId
+            })
+            part1Weight = part1Weight + result.weight
+        }
     }
 
-    var yArray = [part1, part2, part3, part4, part5];
+    // Part 2
+    for(let i=0; i < droppedElements.length; i++){
+        if(droppedElements[i].parentElement?.classList.contains('selection-1')){
+            var currentElementId = parseInt(droppedElements[i].id)
+            var result = instruments.find(obj => {
+                return obj.id === currentElementId
+            })
+            part2Weight = part2Weight + result.weight
+        }
+    }
+
+      // Part 3
+    for(let i=0; i < droppedElements.length; i++){
+        if(droppedElements[i].parentElement?.classList.contains('selection-2')){
+            var currentElementId = parseInt(droppedElements[i].id)
+            var result = instruments.find(obj => {
+                return obj.id === currentElementId
+            })
+            part3Weight = part3Weight + result.weight
+        }
+    }
+
+       // Part 4
+    for(let i=0; i < droppedElements.length; i++){
+        if(droppedElements[i].parentElement?.classList.contains('selection-3')){
+            var currentElementId = parseInt(droppedElements[i].id)
+            var result = instruments.find(obj => {
+                return obj.id === currentElementId
+            })
+            part4Weight = part4Weight + result.weight
+        }
+    }
+
+       // Part 5
+    for(let i=0; i < droppedElements.length; i++){
+        if(droppedElements[i].parentElement?.classList.contains('selection-4')){
+            var currentElementId = parseInt(droppedElements[i].id)
+            var result = instruments.find(obj => {
+                return obj.id === currentElementId
+            })
+            part5Weight = part5Weight + result.weight
+        }
+      }
+    
+
+    // for(let i=0; i<rightPartContainers.length; i++){
+    //     var part1 = (rightPartContainers[0].childElementCount - 1)
+    //     var part2 = (rightPartContainers[1].childElementCount - 1)
+    //     var part3 = (rightPartContainers[2].childElementCount - 1)
+    //     var part4 = (rightPartContainers[3].childElementCount - 1)
+    //     var part5 = (rightPartContainers[4].childElementCount - 1)
+    // }
+
+    var yArray = [part1Weight, part2Weight, part3Weight, part4Weight, part5Weight];
     var layout = {title:"Part Distribution",
         colorway : ['#568FA6', '#C4EEF2', '#BAD9BF', '#E9F1F2', '#4a4e4e']
       };
@@ -588,7 +625,34 @@ function calculateStaffSize(){
       staffText.innerHTML = 'Staff Size: ' + staffSize;
 }
 
+function filterCommonInstruments(){
+    const toggle = document.getElementById('commonInst')
+    var common = instruments.filter(obj => {
+        return obj.common === true
+    })
+    const commonIDArray = []
+   for (let i = 0; i < common.length; i++) {
+        const commonIDs = common[i].id;
+        commonIDArray.push(commonIDs)
+    }
 
+    if(toggle.checked === true){
+        draggalbes.forEach(draggable => {
+            if(commonIDArray.includes(parseInt(draggable.id))){
+                draggable.classList.add('common')
+            }else{
+                draggable.classList.add('hidden')
+            }
+        })
+    }else{
+        draggalbes.forEach(draggable => {
+            draggable.classList.remove('hidden')
+            draggable.classList.remove('common')
+        })
+    }
+ 
+    
+}
 
 
 

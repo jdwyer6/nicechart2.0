@@ -78,6 +78,14 @@
   </g>
             </svg>
             <h3>Orchestration Tool</h3>
+
+            <label class="switch commonSwitch">
+                <div class="commonText">All Instruments</div>
+                <input type="checkbox" id="commonInst" onclick="filterCommonInstruments()">
+                <span class="slider round"></span>
+                <div class="commonText">Common Instruments</div>
+            </label>
+
             <div class="buttonCheck" onclick="copy()">
                 <div class="containerCheck">
                     <div class="tick">
@@ -100,6 +108,7 @@
     
     <div class="mainContainer">
         <div class="left">
+            
             <div class="container woodwinds">
                 <p class="draggable" draggable="true" id="">Piccolo</p>
                 <p class="draggable" draggable="true" id="">Flute (Advanced)</p>
