@@ -456,9 +456,10 @@ function calculateDistribution(){
     // }
 
     var yArray = [part1Weight, part2Weight, part3Weight, part4Weight, part5Weight];
-    var layout = {title:"Part Distribution",
+    var layout = {title:"Part distribution by instrument weight",
         colorway : ['#568FA6', '#C4EEF2', '#BAD9BF', '#E9F1F2', '#4a4e4e']
       };
+
     var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
     Plotly.newPlot("myPlot", data, layout);
 
