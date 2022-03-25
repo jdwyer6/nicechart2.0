@@ -7,7 +7,9 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Prototype</title>
     <link rel="stylesheet" href="prototypeStyle.css">
-    <script src="prototype.js" defer></script>
+    <link rel="stylesheet" href="createAnEnsembleStyle.css">
+    <!-- <script src="prototype.js" defer></script> -->
+    <script src="createAnEnsemble.js" defer></script>
 </head>
 <body>
 
@@ -77,7 +79,7 @@
     </g>
   </g>
             </svg>
-            <h3>Orchestration Tool</h3>
+            <h3>Create an Ensemble</h3>
 
             <label class="switch commonSwitch">
                 <div class="commonText">All Instruments</div>
@@ -86,61 +88,72 @@
                 <div class="commonText">Common Instruments</div>
             </label>
 
-            <div class="buttonCheck" onclick="copy()">
-                <div class="containerCheck">
-                    <div class="tick">
-                    </div>
-                </div>
-            </div>
-            <p class="staffSize">Staff Size: ?</p>
         </div>
        
     </div>
-    <!-- <div class="copy">
-        <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
-    </div> -->
-    <!-- <div class="alertContainer hideWindow">
-        <p class="alertText">Success: Text copied to clipboard</p>
-        <p class="copiedText"></p>
-        <button class="button success-button" onclick="closeWindow()">Ok</button>
-    </div> -->
 
     
     <div class="mainContainer">
         <div class="left">
             
             <div class="container woodwinds">
-                <p class="draggable" draggable="true" id="">Piccolo</p>
-                <p class="draggable" draggable="true" id="">Flute</p>
-                <p class="draggable" draggable="true" id="">Alto Flute in G</p>
-                <p class="draggable" draggable="true" id="">Oboe</p>
-                <p class="draggable" draggable="true" id="">English Horn in F</p>
-                <p class="draggable" draggable="true" id="">Bassoon</p>
-                <p class="draggable" draggable="true" id="">Contrabassoon</p>
-                <p class="draggable" draggable="true" id="">Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="">Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Alto Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="">Bass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Contrabass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Soprano Sax in B♭</p>
-                <p class="draggable" draggable="true" id="">Alto Sax in E♭</p>
-                <p class="draggable" draggable="true" id="">Tenor Sax in B♭</p>
-                <p class="draggable" draggable="true" id="">Baritone Sax in E♭</p>
+                <div class="instrument">
+                    <span class="instName">Piccolo</span> 
+                    <div class="plusMinusContainer" id="1">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div>
+                </div>
+                <div class="instrument">
+                    <span class="instName">Flute (Advanced)</span>
+                    <div class="plusMinusContainer" id="6">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Flute</span>
+                    <div class="plusMinusContainer" id="11">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <p class="draggable" draggable="true" id="1">Piccolo</p>
+                <p class="draggable" draggable="true" id="6">Flute (Advanced)</p>
+                <p class="draggable" draggable="true" id="11">Flute</p>
+                <p class="draggable" draggable="true" id="16">Alto Flute in G</p>
+                <p class="draggable" draggable="true" id="21">Oboe</p>
+                <p class="draggable" draggable="true" id="26">English Horn in F</p>
+                <p class="draggable" draggable="true" id="31">Bassoon</p>
+                <p class="draggable" draggable="true" id="36">Contrabassoon</p>
+                <p class="draggable" draggable="true" id="41">Clarinet in E♭</p>
+                <p class="draggable" draggable="true" id="46">Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="51">Alto Clarinet in E♭</p>
+                <p class="draggable" draggable="true" id="56">Bass Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="61">Contrabass Clarinet in B♭</p>
+                <p class="draggable" draggable="true" id="66">Soprano Sax in B♭</p>
+                <p class="draggable" draggable="true" id="71">Alto Sax in E♭</p>
+                <p class="draggable" draggable="true" id="76">Tenor Sax in B♭</p>
+                <p class="draggable" draggable="true" id="81">Baritone Sax in E♭</p>
             </div>
             <div class="container brass">
-                <p class="draggable" draggable="true" id="">Trumpet in B♭</p>
-                <p class="draggable" draggable="true" id="">Horn in F</p>
-                <p class="draggable" draggable="true" id="">Trombone</p>
-                <p class="draggable" draggable="true" id="">Bass Trombone</p>
-                <p class="draggable" draggable="true" id="">Euphonium B.C.</p>
-                <p class="draggable" draggable="true" id="">Euphonium T.C. in B♭</p>
-                <p class="draggable" draggable="true" id="">Tuba</p>
+                <p class="draggable" draggable="true" id="86">Trumpet in B♭ (Advanced)</p>
+                <p class="draggable" draggable="true" id="91">Trumpet in B♭</p>
+                <p class="draggable" draggable="true" id="96">Horn in F</p>
+                <p class="draggable" draggable="true" id="101">Trombone</p>
+                <p class="draggable" draggable="true" id="106">Bass Trombone</p>
+                <p class="draggable" draggable="true" id="111">Euphonium B.C.</p>
+                <p class="draggable" draggable="true" id="116">Euphonium T.C. in B♭</p>
+                <p class="draggable" draggable="true" id="121">Tuba</p>
             </div>
             <div class="container strings">
-                <p class="draggable" draggable="true" id="">Violin</p>
-                <p class="draggable" draggable="true" id="">Viola</p>
-                <p class="draggable" draggable="true" id="">Cello</p>
-                <p class="draggable" draggable="true" id="">Contrabass</p>
+                <p class="draggable" draggable="true" id="126">Violin</p>
+                <p class="draggable" draggable="true" id="131">Viola</p>
+                <p class="draggable" draggable="true" id="136">Cello</p>
+                <p class="draggable" draggable="true" id="141">Contrabass</p>
             </div>
             <div class="chart">
                 <div id="myPlot" style="width:100%;max-width:700px"></div>
