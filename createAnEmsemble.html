@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="prototypeStyle.css">
     <link rel="stylesheet" href="createAnEnsembleStyle.css">
     <!-- <script src="prototype.js" defer></script> -->
-    <script src="createAnEnsemble.js" defer></script>
+    <script src="createAnEnsemble.js" type="module" defer></script>
 </head>
 <body>
 
@@ -121,62 +121,239 @@
                         <span class="plus plusMinusButton">+</span>
                     </div> 
                 </div>
-                <p class="draggable" draggable="true" id="1">Piccolo</p>
-                <p class="draggable" draggable="true" id="6">Flute (Advanced)</p>
-                <p class="draggable" draggable="true" id="11">Flute</p>
-                <p class="draggable" draggable="true" id="16">Alto Flute in G</p>
-                <p class="draggable" draggable="true" id="21">Oboe</p>
-                <p class="draggable" draggable="true" id="26">English Horn in F</p>
-                <p class="draggable" draggable="true" id="31">Bassoon</p>
-                <p class="draggable" draggable="true" id="36">Contrabassoon</p>
-                <p class="draggable" draggable="true" id="41">Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="46">Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="51">Alto Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="56">Bass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="61">Contrabass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="66">Soprano Sax in B♭</p>
-                <p class="draggable" draggable="true" id="71">Alto Sax in E♭</p>
-                <p class="draggable" draggable="true" id="76">Tenor Sax in B♭</p>
-                <p class="draggable" draggable="true" id="81">Baritone Sax in E♭</p>
+                <div class="instrument">
+                    <span class="instName">Alto Flute in G</span>
+                    <div class="plusMinusContainer" id="16">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Oboe</span>
+                    <div class="plusMinusContainer" id="21">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">English Horn in F</span>
+                    <div class="plusMinusContainer" id="26">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Bassoon</span>
+                    <div class="plusMinusContainer" id="31">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Contrabassoon</span>
+                    <div class="plusMinusContainer" id="36">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Clarinet in E♭</span>
+                    <div class="plusMinusContainer" id="41">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Clarinet in B♭</span>
+                    <div class="plusMinusContainer" id="46">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Alto Clarinet in E♭</span>
+                    <div class="plusMinusContainer" id="51">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Bass Clarinet in B♭</span>
+                    <div class="plusMinusContainer" id="56">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Contrabass Clarinet in B♭</span>
+                    <div class="plusMinusContainer" id="61">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Soprano Sax in B♭</span>
+                    <div class="plusMinusContainer" id="66">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Alto Sax in E♭</span>
+                    <div class="plusMinusContainer" id="71">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Tenor Sax in B♭</span>
+                    <div class="plusMinusContainer" id="76">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Baritone Sax in E♭</span>
+                    <div class="plusMinusContainer" id="81">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+
             </div>
             <div class="container brass">
-                <p class="draggable" draggable="true" id="86">Trumpet in B♭ (Advanced)</p>
-                <p class="draggable" draggable="true" id="91">Trumpet in B♭</p>
-                <p class="draggable" draggable="true" id="96">Horn in F</p>
-                <p class="draggable" draggable="true" id="101">Trombone</p>
-                <p class="draggable" draggable="true" id="106">Bass Trombone</p>
-                <p class="draggable" draggable="true" id="111">Euphonium B.C.</p>
-                <p class="draggable" draggable="true" id="116">Euphonium T.C. in B♭</p>
-                <p class="draggable" draggable="true" id="121">Tuba</p>
+                <div class="instrument">
+                    <span class="instName">Trumpet in B♭ (Advanced)</span>
+                    <div class="plusMinusContainer" id="86">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Trumpet in B♭</span>
+                    <div class="plusMinusContainer" id="91">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Horn in F</span>
+                    <div class="plusMinusContainer" id="96">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Trombone</span>
+                    <div class="plusMinusContainer" id="101">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Bass Trombone</span>
+                    <div class="plusMinusContainer" id="106">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Euphonium B.C.</span>
+                    <div class="plusMinusContainer" id="111">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Euphonium T.C. in B♭</span>
+                    <div class="plusMinusContainer" id="116">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Tuba</span>
+                    <div class="plusMinusContainer" id="121">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
             </div>
             <div class="container strings">
-                <p class="draggable" draggable="true" id="126">Violin</p>
-                <p class="draggable" draggable="true" id="131">Viola</p>
-                <p class="draggable" draggable="true" id="136">Cello</p>
-                <p class="draggable" draggable="true" id="141">Contrabass</p>
+                <div class="instrument">
+                    <span class="instName">Violin</span>
+                    <div class="plusMinusContainer" id="126">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Viola</span>
+                    <div class="plusMinusContainer" id="131">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Cello</span>
+                    <div class="plusMinusContainer" id="136">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
+                <div class="instrument">
+                    <span class="instName">Contrabass</span>
+                    <div class="plusMinusContainer" id="141">
+                        <span class="minus plusMinusButton">-</span>
+                        <input class="counter" type="text" value="0"/>
+                        <span class="plus plusMinusButton">+</span>
+                    </div> 
+                </div>
             </div>
-            <div class="chart">
-                <div id="myPlot" style="width:100%;max-width:700px"></div>
+            <div class="container percussion">
             </div>
-            <!-- <div class="container percussion">
-            </div> -->
         </div>
         <div class="right"> 
-            <div class="container selection-0 droppable" id="0">
-                <p class="part part1">Part 1</p>
+            <div class="container selection-0 woodwinds woodwinds" id="0">
+                <p class="part">Woodwinds</p>
             </div>
-            <div class="container selection-1 droppable" id="1">
-                <p class="part part2">Part 2</p>
+            <div class="container selection-1 brass" id="1">
+                <p class="part">Brass</p>
             </div>
-            <div class="container selection-2 droppable" id="2">
-                <p class="part part3">Part 3</p>
+            <div class="container selection-2 strings" id="2">
+                <p class="part part3">Strings</p>
             </div>
-            <div class="container selection-3 droppable" id="3">
+            <!-- <div class="container selection-3" id="3">
                 <p class="part part4">Part 4</p>
-            </div>
-            <div class="container selection-4 droppable" id="4">
+            </div> -->
+            <!-- <div class="container selection-4 droppable" id="4">
                 <p class="part part5">Part 5</p>
-            </div>
+            </div> -->
             <div class="container selection percussionRight">
                 <p class="part percussion">Percussion</p>
                 <div class="percussionInstrument">
@@ -212,10 +389,6 @@
 
         </div>
     </div>
-    
-   
-    
-
     
 </body>
 </html>

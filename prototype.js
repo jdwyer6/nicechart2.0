@@ -225,7 +225,7 @@ const instruments = [
     "common": true
     }
     ]
- 
+
 const draggalbes = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 const rightSection = document.querySelector('.right')
@@ -666,5 +666,4 @@ function filterCommonInstruments(){
  }
 
 instTest()
-
 
