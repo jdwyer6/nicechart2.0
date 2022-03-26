@@ -20,7 +20,8 @@ plusMinusButtons.forEach(pmb => {
         var currentInst = instruments.find(obj => {
             return obj.id === currentParentID
         })
-        var elementToAdd = document.createElement("p").innerHTML = currentInst.name
+        var elementToAdd = document.createElement("p")
+        elementToAdd.innerHTML = currentInst.name
 
 
 
@@ -31,17 +32,11 @@ plusMinusButtons.forEach(pmb => {
 
 
             if(family.classList.contains('woodwinds')){
-
-                woodwinds.append(elementToAdd)
-            
+                woodwinds.appendChild(elementToAdd)
             }else if(family.classList.contains('brass')){
-
-                brass.append(elementToAdd)
-
+                brass.appendChild(elementToAdd)
             }else if(family.classList.contains('strings')){
-
-                strings.append(elementToAdd)
-
+                strings.appendChild(elementToAdd)
             }
          
         }else{
@@ -52,7 +47,40 @@ plusMinusButtons.forEach(pmb => {
                     return obj.id === currentParentID
                 })
                 currentEnsemble.pop(objToRemove)
-                console.log(currentEnsemble)
+
+                
+                if(family.classList.contains('woodwinds')){
+                    var elementsInSection = [...woodwinds.querySelectorAll('p')]
+                    for(let i=0; i<elementsInSection.length; i++){
+                        if(elementsInSection[i].innerHTML === objToRemove.name){
+                            woodwinds.removeChild(elementsInSection[i])
+                            break
+                        }
+                    }
+                    
+                }else if(family.classList.contains('brass')){
+                    
+                    var elementsInSection = [...brass.querySelectorAll('p')]
+                    for(let i=0; i<elementsInSection.length; i++){
+                        if(elementsInSection[i].innerHTML === objToRemove.name){
+                            brass.removeChild(elementsInSection[i])
+                            break
+                        }
+                    }
+
+                }else if(family.classList.contains('strings')){
+
+                    var elementsInSection = [...strings.querySelectorAll('p')]
+                    for(let i=0; i<elementsInSection.length; i++){
+                        if(elementsInSection[i].innerHTML === objToRemove.name){
+                            strings.removeChild(elementsInSection[i])
+                            break
+                        }
+                    }
+
+                }
+             
+              
             }else{
                 currentCount.value = 0
             }
