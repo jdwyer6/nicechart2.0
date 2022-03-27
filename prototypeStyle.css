@@ -361,6 +361,30 @@ color: black;
      display: none;
   }
 
-  .common{
-      background-color: var(--lightBlue);
+  .header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    background-color:var(--gray);
+  }
+
+  .logo{
+    margin-left: 20px;
+  }
+
+  .navLinks{
+    margin: 0 30px;
+  }
+
+  .navLinks:hover{
+    color: var(--mainBlue);
+    cursor: pointer;
+  }
+
+  .navLinkContainer{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 10%;
   }

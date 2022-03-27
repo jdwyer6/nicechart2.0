@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Prototype</title>
-    <link rel="stylesheet" href="prototypeStyle.css">
-    <script src="prototype.js" defer></script>
+    <link rel="stylesheet" href="../prototypeStyle.css">
+    <link rel="stylesheet" href="createAnEnsembleStyle.css">
+    <!-- <script src="prototype.js" defer></script> -->
+    <script src="createAnEnsemble.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -85,135 +86,33 @@
             <div class="navLinks">How It Works</div>
         </div>
     </div>
-
     <div class="title">
         <div class="topContainer">
-            
-            <h3>Orchestration Tool</h3>
-
-            <label class="switch commonSwitch">
-                <div class="commonText">All Instruments</div>
-                <input type="checkbox" id="commonInst" onclick="filterCommonInstruments()" checked>
-                <span class="slider round"></span>
-                <div class="commonText">Common Instruments</div>
-            </label>
-
-            <div class="buttonCheck" onclick="copy()">
-                <div class="containerCheck">
-                    <div class="tick">
-                    </div>
-                </div>
+            <h3>Create an Ensemble</h3>
+            <div class="progressBarContainer">
+                <ul class="progressBar">
+                    <li class="active">Name your ensemble</li>
+                    <li><a href="createAnEnsemble.html">Choose your instrumentation</a></li>
+                    <li>Add percussion</li>
+                </ul>
             </div>
-            <p class="staffSize">Staff Size: ?</p>
+            
+            <form onsubmit="saveName()"> 
+                <p>Let's give your group a name</p>
+                <input id="ensembleName" type="text">
+            </form>
+            <a href="createAnEnsemble.html"><button class="button nameSubmitBtn" onclick="saveName()">Next</button></a>
+            
+
+         
+
         </div>
        
     </div>
-    <!-- <div class="copy">
-        <button type="button" onclick="copy()" class="button">Copy to Clipboard</button>
-    </div> -->
-    <!-- <div class="alertContainer hideWindow">
-        <p class="alertText">Success: Text copied to clipboard</p>
-        <p class="copiedText"></p>
-        <button class="button success-button" onclick="closeWindow()">Ok</button>
-    </div> -->
 
     
-    <div class="mainContainer">
-        <div class="left">
-            <div class="container woodwinds">
-                <p class="draggable" draggable="true" id="">Piccolo</p>
-                <p class="draggable" draggable="true" id="">Flute</p>
-                <p class="draggable" draggable="true" id="">Alto Flute in G</p>
-                <p class="draggable" draggable="true" id="">Oboe</p>
-                <p class="draggable" draggable="true" id="">English Horn in F</p>
-                <p class="draggable" draggable="true" id="">Bassoon</p>
-                <p class="draggable" draggable="true" id="">Contrabassoon</p>
-                <p class="draggable" draggable="true" id="">Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="">Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Alto Clarinet in E♭</p>
-                <p class="draggable" draggable="true" id="">Bass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Contrabass Clarinet in B♭</p>
-                <p class="draggable" draggable="true" id="">Soprano Sax in B♭</p>
-                <p class="draggable" draggable="true" id="">Alto Sax in E♭</p>
-                <p class="draggable" draggable="true" id="">Tenor Sax in B♭</p>
-                <p class="draggable" draggable="true" id="">Baritone Sax in E♭</p>
-            </div>
-            <div class="container brass">
-                <p class="draggable" draggable="true" id="">Trumpet in B♭</p>
-                <p class="draggable" draggable="true" id="">Horn in F</p>
-                <p class="draggable" draggable="true" id="">Trombone</p>
-                <p class="draggable" draggable="true" id="">Bass Trombone</p>
-                <p class="draggable" draggable="true" id="">Euphonium B.C.</p>
-                <p class="draggable" draggable="true" id="">Euphonium T.C. in B♭</p>
-                <p class="draggable" draggable="true" id="">Tuba</p>
-            </div>
-            <div class="container strings">
-                <p class="draggable" draggable="true" id="">Violin</p>
-                <p class="draggable" draggable="true" id="">Viola</p>
-                <p class="draggable" draggable="true" id="">Cello</p>
-                <p class="draggable" draggable="true" id="">Contrabass</p>
-            </div>
-            <div class="chart">
-                <div id="myPlot" style="width:100%;max-width:700px"></div>
-            </div>
-            <!-- <div class="container percussion">
-            </div> -->
-        </div>
-        <div class="right"> 
-            <div class="container selection-0 droppable" id="0">
-                <p class="part part1">Part 1</p>
-            </div>
-            <div class="container selection-1 droppable" id="1">
-                <p class="part part2">Part 2</p>
-            </div>
-            <div class="container selection-2 droppable" id="2">
-                <p class="part part3">Part 3</p>
-            </div>
-            <div class="container selection-3 droppable" id="3">
-                <p class="part part4">Part 4</p>
-            </div>
-            <div class="container selection-4 droppable" id="4">
-                <p class="part part5">Part 5</p>
-            </div>
-            <div class="container selection percussionRight">
-                <p class="part percussion">Percussion</p>
-                <div class="percussionInstrument">
-                    <p>Percussion 1</p>
-                    <label class="switch">
-                        <input type="checkbox" id="136">
-                        <span class="slider round"></span>
-                      </label>
-                </div>
-                <div class="percussionInstrument">
-                    <p>Percussion 2</p>
-                    <label class="switch">
-                        <input type="checkbox" id="137">
-                        <span class="slider round"></span>
-                      </label>
-                </div>
-                <div class="percussionInstrument">
-                    <p>Mallet Percussion</p>
-                    <label class="switch">
-                        <input type="checkbox" id="138">
-                        <span class="slider round"></span>
-                      </label>
-                </div>
-                <div class="percussionInstrument">
-                    <p>Timpani</p>
-                    <label class="switch">
-                        <input type="checkbox" id="139">
-                        <span class="slider round"></span>
-                      </label>
-                </div>
-                
-            </div>
-
-        </div>
-    </div>
     
    
-    
-
     
 </body>
 </html>

@@ -327,6 +327,8 @@ function addToInstArray(){
     if(timpani.checked === true){
         instArray.push(149)
     }
+    
+    sortArray()
 }
 
    // Copy Array
@@ -337,12 +339,20 @@ function copy(){
         instArray = []
         addToInstArray()
     }
+
+    let uniqueCharsSet = [...new Set(instArray)]
+    let uniqueCharsArray = Array.from(uniqueCharsSet)
+    instArray = uniqueCharsArray
+
     const textToCopy = instArray.toString();
     const copiedText = document.querySelector('.copiedText')
     navigator.clipboard.writeText(textToCopy);
     // copiedText.innerHTML = textToCopy
     const button = document.querySelector('.button')
+
     calculateStaffSize()
+
+    console.log(instArray)
 }
 
 function showWindow(){
@@ -627,7 +637,7 @@ function filterCommonInstruments(){
     if(toggle.checked === true){
         draggalbes.forEach(draggable => {
             if(commonIDArray.includes(parseInt(draggable.id))){
-                draggable.classList.add('common')
+
             }else{
                 draggable.classList.add('hidden')
             }
@@ -635,22 +645,19 @@ function filterCommonInstruments(){
     }else{
         draggalbes.forEach(draggable => {
             draggable.classList.remove('hidden')
-            draggable.classList.remove('common')
         })
     }
  
     
 }
 
+filterCommonInstruments()
 
 
+function sortArray(){
 
-
- function instTest(){
-     for(let i=0; i<instruments.length; i++){
-         console.log(instruments[12].id)
-     }
- }
-
-instTest()
+      instArray.sort((a, b) => {
+      return a - b;
+    });
+}
 
