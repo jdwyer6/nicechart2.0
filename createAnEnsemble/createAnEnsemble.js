@@ -220,6 +220,7 @@ const plusMinusButtons = [...document.querySelectorAll('.plusMinusButton')]
 var currentEnsemble = []
 const ensembleTitle = document.querySelector('.ensembleTitle')
 const rightContainer = document.querySelector('.chosenEnsembleContainer')
+var savedEnsembles = []
 
 ensembleTitle.innerHTML = localStorage.getItem('ensembleName')
 
@@ -240,32 +241,42 @@ plusMinusButtons.forEach(pmb => {
 
 
         if(e.target.classList.contains('plus')){
+
+            var x = currentEnsemble.find(obj => {
+                return obj.name === currentInst.name
+            })
+
+          
+
             count += 1
             currentCount.value = count
             currentEnsemble.push(currentInst)
 
-            
             var newElement = document.createElement("p")
             newElement.innerHTML = currentInst.name
             newElement.classList.add('chosenInst')
             var chosenInstruments = [...document.querySelectorAll(".chosenInst")]
-            rightContainer.append(newElement)
             
-            // if(chosenInstruments.length === 0){
-            //     rightContainer.appendChild(newElement)
-            //     console.log("chosen inst length")
-            // }
+            
+            if(chosenInstruments.length === 0){
+                rightContainer.appendChild(newElement)
+                
+            }
+            
+            if(x === undefined){
+                rightContainer.appendChild(newElement)
+            }else{
+                console.log(count)
+                
+                chosenInstruments.forEach(inst => {
+                    if(inst.innerHTML === x.name){
+                        console.log('increment')
+                    }
+                })
+                
+            }
 
-            // chosenInstruments.forEach(inst => {
-            //     if(inst.innerHTML === newElement.innerHTML){
-            //         console.log('same')
-
-            //     }else{
-            //         rightContainer.append(newElement)
-            //     }
-            // })
-         
-
+ 
          
         }else{
             if(count > 0){
@@ -285,7 +296,7 @@ plusMinusButtons.forEach(pmb => {
         }
   
      
-       console.log(currentEnsemble)
+      
 
 
     })
@@ -299,12 +310,15 @@ function saveName(){
     console.log(localStorage)
 }
 
-// function saveEnsemble(){
-//     localStorage.setItem('currentEnsemble', currentEnsemble)
-// }
+function saveInstrumentation(){
+    // HAVE TO CONVERT TO NODES OR SOMETHING BEFORE SAVING AN ARRAY
+    localStorage.setItem('ensembleInstrumentation', currentEnsemble)
+}
+
+function saveEnsemble (){
+    var ensemble = localStorage.get("ensembleInstrumentation")
+// savedEnsembles.push({name:})
+console.log(ensemble)
+}
 
 
-
-
-
-// Next: unAppend elements when pressing minus button

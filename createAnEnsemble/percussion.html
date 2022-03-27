@@ -91,27 +91,27 @@
             <h3>Create an Ensemble</h3>
             <div class="progressBarContainer">
                 <ul class="progressBar">
-                    <li class="active">Name your ensemble</li>
+                    <a href="nameEnsemble.html"><li>Name your ensemble</li></a>
                     <li><a href="createAnEnsemble.html">Choose your instrumentation</a></li>
-                    <li><a href="percussion.html">Add percussion</a></li>
+                    <li class="active">Add percussion</li>
                 </ul>
             </div>
+            <div class="container ensembleTitle" id="0">
+                <p class="ensembleTitle">Ensemble Name</p>
+            </div>
+            <div class="percussion">
+                <p>How many percussion parts do you want?</p>
+                <input type="text" value="0">
+            </div>
             
-            <form onsubmit="saveName()"> 
-                <p>Let's give your group a name</p>
-                <input id="ensembleName" type="text">
-            </form>
-            <a href="createAnEnsemble.html"><button class="button nameSubmitBtn" onclick="saveName()">Next</button></a>
-            
-
-         
+            <a href="percussion.html"><button onclick="saveEnsemble()" class="button">Save Ensemble</button></a>
 
         </div>
        
     </div>
 
-    
-    
+ 
+         
    
     
 </body>
