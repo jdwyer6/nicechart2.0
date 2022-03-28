@@ -316,6 +316,7 @@ function saveName(){
 function saveInstrumentation(){
     // HAVE TO CONVERT TO STRING BEFORE SAVING TO LOCALSTORAGE
     localStorage.setItem('ensembleInstrumentation', JSON.stringify(currentEnsemble))
+
 }
 
 function savePercussion(){
@@ -326,35 +327,70 @@ function savePercussion(){
 }
 
 function saveEnsemble (){
-    var name =localStorage.getItem('ensembleName')
+    savedEnsembles = JSON.parse(localStorage.getItem('createdEnsemblesArray'))
+    var name = localStorage.getItem('ensembleName')
     var percussionNum = parseInt(localStorage.getItem('ensemblePercussion'))
     var ensInstrumentation = JSON.parse(localStorage.getItem('ensembleInstrumentation'))
 
-    var thisEnsemble = {name: name, Percussion: percussionNum, instrumentation: ensInstrumentation}
+    var thisEnsemble = {name: name, percussion: percussionNum, instrumentation: ensInstrumentation}
     savedEnsembles.push(thisEnsemble)
 
     localStorage.setItem('createdEnsemblesArray', JSON.stringify(savedEnsembles))
-    console.log(localStorage)
+    
 
 }
 
 function loadEnsembles(){
     savedEnsembles = JSON.parse(localStorage.getItem('createdEnsemblesArray'))
-    // CREATE THESE ELEMENTS
-    // <div class="ensembleContainer">
-    //             <h3 class="ensembleContainerTitle"></h3>
-    //             <p class="ensembleContainerInstruments"></p>
-    //             <p class="ensembleContainerPercussionParts"></p>
-    //         </div>
+    console.log(savedEnsembles)
+
+    
+
+    // savedEnsembles.forEach(ens => {
+    //     topContainer.appendChild(ensembleContainer)
+    // })
+
+ 
 
     if(savedEnsembles.length > 0){
         for(let i=0; i<savedEnsembles.length; i++){
-            //APPEND THE ELEMENTS
-            //TITLE.INNERHTML = SAVEDENSEMBLES[I]
+
+            const topContainer = document.querySelector('.myEnsemblesContainer')
+            //Create Div Container
+            var ensembleContainer = document.createElement('div')
+            ensembleContainer.classList.add('ensembleContainer')
+            // Create Title Element
+            var ensembleContainerTitle = document.createElement('h3')
+            ensembleContainerTitle.classList.add('ensembleContainerTitle')
+            // Create member number
+            var memberNumber = document.createElement('p')
+            memberNumber.classList.add('memberNumber')
+            // Create Percussion Parts
+            var ensembleContainerPercussionParts = document.createElement('p')
+            ensembleContainerPercussionParts.classList.add('ensembleContainerPercussionParts')
+            
+            topContainer.appendChild(ensembleContainer)
+
+            ensembleContainer.appendChild(ensembleContainerTitle)
+            ensembleContainerTitle.innerHTML = savedEnsembles[i].name
+
+            ensembleContainer.appendChild(memberNumber)
+            memberNumber.innerHTML = "Number of Members: " + savedEnsembles[i].instrumentation.length
+        
+            
+           
+            ensembleContainer.appendChild(ensembleContainerPercussionParts)
+            ensembleContainerPercussionParts.innerHTML = "Percussionists: " + savedEnsembles[i].percussion
+
         }
+       
+
+        
     }else{
         document.querySelector('.noEnsembles').innerHTML = "Hmm...It looks like you haven't created any ensembles yet. Click the 'New ensemble' button below to get started"
     }
-    console.log(savedEnsembles)
+
+ 
+   
 }
 

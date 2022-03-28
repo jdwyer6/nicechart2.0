@@ -169,6 +169,26 @@ a{
     width: 200px;
     background-color: var(--green);
     border-radius: 5px;
-    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.226);
     margin: 10px;
+    border: none;
+}
+
+.ensembleContainer:hover{
+    cursor: pointer;
+    border: 2px solid var(--mainBlue);
+    margin: 8px;
+}
+
+.myEnsemblesContainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.title{
+    margin: 0 100px 100px;
+}
+
+.myEnsemblesBtn{
+    margin-top: 50px;
 }
