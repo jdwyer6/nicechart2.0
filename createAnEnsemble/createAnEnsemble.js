@@ -222,7 +222,10 @@ const ensembleTitle = document.querySelector('.ensembleTitle')
 const rightContainer = document.querySelector('.chosenEnsembleContainer')
 var savedEnsembles = []
 
-ensembleTitle.innerHTML = localStorage.getItem('ensembleName')
+function updateTitle(){
+    ensembleTitle.innerHTML = localStorage.getItem('ensembleName')
+}
+
 
 
 plusMinusButtons.forEach(pmb => {
@@ -306,19 +309,52 @@ plusMinusButtons.forEach(pmb => {
 function saveName(){
     var ensembleName = document.getElementById('ensembleName').value
     localStorage.setItem('ensembleName', ensembleName)
-    currentName = localStorage.getItem('ensembleName')
-    console.log(localStorage)
+    // currentName = localStorage.getItem('ensembleName')
+    
 }
 
 function saveInstrumentation(){
-    // HAVE TO CONVERT TO NODES OR SOMETHING BEFORE SAVING AN ARRAY
-    localStorage.setItem('ensembleInstrumentation', currentEnsemble)
+    // HAVE TO CONVERT TO STRING BEFORE SAVING TO LOCALSTORAGE
+    localStorage.setItem('ensembleInstrumentation', JSON.stringify(currentEnsemble))
+}
+
+function savePercussion(){
+    var percussionNum = document.getElementById('percussionNum').value
+    localStorage.setItem('ensemblePercussion', percussionNum)
+    saveEnsemble ()
+    
 }
 
 function saveEnsemble (){
-    var ensemble = localStorage.get("ensembleInstrumentation")
-// savedEnsembles.push({name:})
-console.log(ensemble)
+    var name =localStorage.getItem('ensembleName')
+    var percussionNum = parseInt(localStorage.getItem('ensemblePercussion'))
+    var ensInstrumentation = JSON.parse(localStorage.getItem('ensembleInstrumentation'))
+
+    var thisEnsemble = {name: name, Percussion: percussionNum, instrumentation: ensInstrumentation}
+    savedEnsembles.push(thisEnsemble)
+
+    localStorage.setItem('createdEnsemblesArray', JSON.stringify(savedEnsembles))
+    console.log(localStorage)
+
 }
 
+function loadEnsembles(){
+    savedEnsembles = JSON.parse(localStorage.getItem('createdEnsemblesArray'))
+    // CREATE THESE ELEMENTS
+    // <div class="ensembleContainer">
+    //             <h3 class="ensembleContainerTitle"></h3>
+    //             <p class="ensembleContainerInstruments"></p>
+    //             <p class="ensembleContainerPercussionParts"></p>
+    //         </div>
+
+    if(savedEnsembles.length > 0){
+        for(let i=0; i<savedEnsembles.length; i++){
+            //APPEND THE ELEMENTS
+            //TITLE.INNERHTML = SAVEDENSEMBLES[I]
+        }
+    }else{
+        document.querySelector('.noEnsembles').innerHTML = "Hmm...It looks like you haven't created any ensembles yet. Click the 'New ensemble' button below to get started"
+    }
+    console.log(savedEnsembles)
+}
 

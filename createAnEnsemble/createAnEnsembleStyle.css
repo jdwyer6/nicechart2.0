@@ -154,3 +154,21 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
+.ensembleTitle{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#percussionNum{
+    margin-bottom: 30px;
+}
+
+.ensembleContainer{
+    height: 250px;
+    width: 200px;
+    background-color: var(--green);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.226);
+    margin: 10px;
+}

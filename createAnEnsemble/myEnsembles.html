@@ -10,7 +10,7 @@
     <!-- <script src="prototype.js" defer></script> -->
     <script src="createAnEnsemble.js" defer></script>
 </head>
-<body onload="updateTitle()">
+<body onload="loadEnsembles()">
     <div class="header">
         <svg class="logo"
         width="210"
@@ -88,24 +88,15 @@
     </div>
     <div class="title">
         <div class="topContainer">
-            <h3>Create an Ensemble</h3>
-            <div class="progressBarContainer">
-                <ul class="progressBar">
-                    <a href="nameEnsemble.html"><li>Name your ensemble</li></a>
-                    <li><a href="createAnEnsemble.html">Choose your instrumentation</a></li>
-                    <li class="active">Add percussion</li>
-                </ul>
-            </div>
-            <div class="ensembleTitle" id="0">
-                <p class="ensembleTitle">Ensemble Name</p>
-            </div>
-            <div class="percussion">
-                <p>How many percussion parts do you want?</p>
-                <input id="percussionNum" type="text" value="0">
+            <h3>My Ensembles</h3>
+            <p class="noEnsembles"></p>
+            <div class="ensembleContainer">
+                <h3 class="ensembleContainerTitle"></h3>
+                <p class="ensembleContainerInstruments"></p>
+                <p class="ensembleContainerPercussionParts"></p>
             </div>
             
-            <a href="myEnsembles.html"><button onclick="savePercussion()" type="button" class="button">Save Ensemble</button></a>
-            <p class="testclass"></p>
+            <a href='nameEnsemble.html'><button onclick="" type="button" class="button">+ New Ensemble</button></a>
 
         </div>
        
